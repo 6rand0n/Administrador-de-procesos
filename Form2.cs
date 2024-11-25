@@ -12,6 +12,7 @@ namespace SOProyecto
 {
     public partial class Procesos : Form
     {
+        static public int RA, RB, RC;
         public Procesos()
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace SOProyecto
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

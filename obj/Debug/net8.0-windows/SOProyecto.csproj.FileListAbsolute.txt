@@ -16,3 +16,4 @@ D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\refint\SOProyecto
 D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\SOProyecto.pdb
 D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
 D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\ref\SOProyecto.dll
+D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\SOProyecto.Procesos.resources
