@@ -35,9 +35,11 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            txtRA = new TextBox();
-            txtRB = new TextBox();
-            txtRC = new TextBox();
+            lbC = new Label();
+            lbB = new Label();
+            lbA = new Label();
+            label6 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)NumProcess).BeginInit();
             SuspendLayout();
             // 
@@ -79,11 +81,11 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonFace;
             label2.Location = new Point(92, 209);
             label2.Name = "label2";
-            label2.Size = new Size(30, 31);
+            label2.Size = new Size(37, 38);
             label2.TabIndex = 3;
             label2.Text = "A";
             label2.Click += label2_Click;
@@ -92,11 +94,11 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonFace;
             label3.Location = new Point(212, 209);
             label3.Name = "label3";
-            label3.Size = new Size(29, 31);
+            label3.Size = new Size(35, 38);
             label3.TabIndex = 4;
             label3.Text = "B";
             // 
@@ -104,11 +106,11 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonFace;
             label4.Location = new Point(321, 209);
             label4.Name = "label4";
-            label4.Size = new Size(28, 31);
+            label4.Size = new Size(34, 38);
             label4.TabIndex = 5;
             label4.Text = "C";
             // 
@@ -124,39 +126,81 @@
             label5.TabIndex = 6;
             label5.Text = "Recursos";
             // 
-            // txtRA
+            // lbC
             // 
-            txtRA.Enabled = false;
-            txtRA.Location = new Point(75, 294);
-            txtRA.Name = "txtRA";
-            txtRA.Size = new Size(59, 27);
-            txtRA.TabIndex = 7;
+            lbC.AutoSize = true;
+            lbC.BackColor = Color.Transparent;
+            lbC.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbC.ForeColor = SystemColors.ActiveCaption;
+            lbC.Location = new Point(321, 294);
+            lbC.Name = "lbC";
+            lbC.Size = new Size(27, 31);
+            lbC.TabIndex = 10;
+            lbC.Text = "0";
             // 
-            // txtRB
+            // lbB
             // 
-            txtRB.Enabled = false;
-            txtRB.Location = new Point(197, 294);
-            txtRB.Name = "txtRB";
-            txtRB.Size = new Size(59, 27);
-            txtRB.TabIndex = 8;
+            lbB.AutoSize = true;
+            lbB.BackColor = Color.Transparent;
+            lbB.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbB.ForeColor = SystemColors.ActiveCaption;
+            lbB.Location = new Point(212, 294);
+            lbB.Name = "lbB";
+            lbB.Size = new Size(27, 31);
+            lbB.TabIndex = 11;
+            lbB.Text = "0";
             // 
-            // txtRC
+            // lbA
             // 
-            txtRC.Enabled = false;
-            txtRC.Location = new Point(305, 294);
-            txtRC.Name = "txtRC";
-            txtRC.Size = new Size(59, 27);
-            txtRC.TabIndex = 9;
+            lbA.AutoSize = true;
+            lbA.BackColor = Color.Transparent;
+            lbA.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbA.ForeColor = SystemColors.ActiveCaption;
+            lbA.Location = new Point(92, 294);
+            lbA.Name = "lbA";
+            lbA.Size = new Size(27, 31);
+            lbA.TabIndex = 12;
+            lbA.Text = "0";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.BorderStyle = BorderStyle.Fixed3D;
+            label6.Font = new Font("Segoe UI Variable Text Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.Control;
+            label6.Location = new Point(1030, 76);
+            label6.Name = "label6";
+            label6.Size = new Size(176, 39);
+            label6.TabIndex = 13;
+            label6.Text = "En ejecucion";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.BorderStyle = BorderStyle.Fixed3D;
+            label7.Font = new Font("Segoe UI Variable Text Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = SystemColors.Control;
+            label7.Location = new Point(1048, 294);
+            label7.Name = "label7";
+            label7.Size = new Size(131, 39);
+            label7.TabIndex = 14;
+            label7.Text = "Procesos";
+            label7.Click += label7_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
             BackgroundImage = Properties.Resources.FondoSO;
             ClientSize = new Size(1491, 642);
-            Controls.Add(txtRC);
-            Controls.Add(txtRB);
-            Controls.Add(txtRA);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(lbA);
+            Controls.Add(lbB);
+            Controls.Add(lbC);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -165,7 +209,8 @@
             Controls.Add(btnProcess);
             Controls.Add(label1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Administrador de procesos";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)NumProcess).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -183,5 +228,10 @@
         private TextBox txtRA;
         private TextBox txtRB;
         private TextBox txtRC;
+        private Label lbC;
+        private Label lbB;
+        private Label lbA;
+        private Label label6;
+        private Label label7;
     }
 }

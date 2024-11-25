@@ -63,6 +63,16 @@ namespace SOProyecto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fondo2SO {
+            get {
+                object obj = ResourceManager.GetObject("Fondo2SO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FondoSO {
             get {
                 object obj = ResourceManager.GetObject("FondoSO", resourceCulture);

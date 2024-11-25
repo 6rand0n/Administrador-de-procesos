@@ -5,16 +5,16 @@ namespace SOProyecto
 {
     public partial class Form1 : Form
     {
-        static private int RAT, RBT, RCT;
+        static public int RAT, RBT, RCT;
         public Form1()
         {
             InitializeComponent();
             RAT = 16;
             RBT = 8;
             RCT = 12;
-            txtRA.Text = Convert.ToString(RAT);
-            txtRB.Text = Convert.ToString(RBT);
-            txtRC.Text = Convert.ToString(RCT);
+            lbA.Text = Convert.ToString(RAT);
+            lbB.Text = Convert.ToString(RBT);
+            lbC.Text = Convert.ToString(RCT);
         }
 
         private void btnProcess_Click(object sender, EventArgs e)
@@ -23,19 +23,21 @@ namespace SOProyecto
             if (num > 0)
             {
                 this.Hide();
+                Procesos procesosV = new Procesos(num);
+                procesosV.ShowDialog();
                 for (int i = 0; i < num; i++)
                 {
-                    Procesos procesosV = new Procesos();
-                    procesosV.ShowDialog();
-                    // FALTA VERIFICACION U CUALQUIER METODO DE ADMINISTRACION A USAR
-                    RAT -= Procesos.RA;
-                    RBT -= Procesos.RB;
-                    RCT -= Procesos.RC;
-                    // FALTA CREAR OBJETO DE LA CLASE DEL PROCESO
+                    // - A quien le toque la insercion de procesos:
+
+                    // Aqui deberan usar un vector/matriz static para traerse la info de los procesos, esto para hacer la tabla y el objeto de cada uno
+                    // Con el bucle crean los objetos 
+                    // FALTA VERIFICACION U CUALQUIER METODO DE ADMINISTRACION A USAR - Esto en el Form 2 
+                    // FALTA CREAR OBJETO DE LA CLASE DEL PROCESO - Esto aqui
                 }
-                txtRA.Text = Convert.ToString(RAT);
-                txtRB.Text = Convert.ToString(RBT);
-                txtRC.Text = Convert.ToString(RCT);
+                lbA.Text = Convert.ToString(RAT);
+                lbB.Text = Convert.ToString(RBT);
+                lbC.Text = Convert.ToString(RCT);
+                NumProcess.Value = 0;
                 this.Show();
             }
             else
@@ -50,6 +52,16 @@ namespace SOProyecto
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
