@@ -6,5 +6,12 @@ namespace SOProyecto
         {
             InitializeComponent();
         }
+
+        private void btnProcess_Click(object sender, EventArgs e)
+        {
+            //Num Procesos en i
+            int num;
+            for(int i = 0; i < num; i++) {
+        }
     }
 }

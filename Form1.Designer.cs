@@ -28,12 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            label1 = new Label();
+            btnProcess = new Button();
+            NumProcess = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)NumProcess).BeginInit();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.BorderStyle = BorderStyle.Fixed3D;
+            label1.Font = new Font("Segoe UI Variable Text Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(24, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(401, 39);
+            label1.TabIndex = 0;
+            label1.Text = "Administrador de procesos Bv";
+            // 
+            // btnProcess
+            // 
+            btnProcess.BackColor = Color.Silver;
+            btnProcess.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnProcess.ForeColor = SystemColors.MenuText;
+            btnProcess.Location = new Point(24, 518);
+            btnProcess.Name = "btnProcess";
+            btnProcess.Size = new Size(305, 68);
+            btnProcess.TabIndex = 1;
+            btnProcess.Text = "Añadir Procesos";
+            btnProcess.UseVisualStyleBackColor = false;
+            btnProcess.Click += btnProcess_Click;
+            // 
+            // NumProcess
+            // 
+            NumProcess.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            NumProcess.Location = new Point(347, 532);
+            NumProcess.Name = "NumProcess";
+            NumProcess.Size = new Size(150, 51);
+            NumProcess.TabIndex = 2;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.FondoSO;
+            ClientSize = new Size(1491, 642);
+            Controls.Add(NumProcess);
+            Controls.Add(btnProcess);
+            Controls.Add(label1);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)NumProcess).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private Button btnProcess;
+        private NumericUpDown NumProcess;
     }
 }
