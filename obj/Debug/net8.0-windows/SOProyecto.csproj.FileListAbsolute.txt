@@ -36,3 +36,22 @@ C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\o
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.pdb
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\ref\SOProyecto.dll
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\bin\Debug\net8.0-windows\SOProyecto.exe
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\bin\Debug\net8.0-windows\SOProyecto.deps.json
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\bin\Debug\net8.0-windows\SOProyecto.runtimeconfig.json
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\bin\Debug\net8.0-windows\SOProyecto.dll
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\bin\Debug\net8.0-windows\SOProyecto.pdb
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.Form1.resources
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.Procesos.resources
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.Properties.Resources.resources
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.csproj.GenerateResource.cache
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.AssemblyInfoInputs.cache
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.AssemblyInfo.cs
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.csproj.CoreCompileInputs.cache
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.sourcelink.json
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.dll
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\refint\SOProyecto.dll
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.pdb
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
+C:\Users\eliri\OneDrive\Documentos\Proyecto_sistemas_operativos\obj\Debug\net8.0-windows\ref\SOProyecto.dll

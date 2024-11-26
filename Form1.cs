@@ -30,6 +30,8 @@ namespace SOProyecto
             public int TiempoEjecucion { get; set; } // el tiempo que se esta ejecutando
             public string Estado { get; set; } // Que proceso se encuentra
 
+            public string Swap { get; set; } //Donde esta el proceso en memoria principal o en disco duro
+
             // Constructor del proceso
             public Proceso(int id, string nombre, int memoria, int cpu, int tiempoEjecucion)
             {
@@ -39,6 +41,7 @@ namespace SOProyecto
                 this.CPU = cpu;
                 this.TiempoEjecucion = tiempoEjecucion;
                 this.Estado = "En espera";
+                this.Swap = "Desconocido";
             }
         }
 
@@ -100,7 +103,7 @@ namespace SOProyecto
 
             foreach (var proceso in procesos)
             {
-                dataGridView1.Rows.Add(proceso.ID, proceso.Nombre, proceso.Memoria, proceso.CPU, proceso.TiempoEjecucion, proceso.Estado);
+                dataGridView1.Rows.Add(proceso.ID, proceso.Nombre, proceso.Memoria, proceso.CPU, proceso.TiempoEjecucion, proceso.Estado, proceso.Swap);
             }
         }
 
