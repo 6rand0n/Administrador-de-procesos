@@ -17,3 +17,22 @@ D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\SOProyecto.pdb
 D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
 D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\ref\SOProyecto.dll
 D:\Visual Studio Proyectos\SOProyecto\obj\Debug\net8.0-windows\SOProyecto.Procesos.resources
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.exe
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.deps.json
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.runtimeconfig.json
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.dll
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.pdb
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.Form1.resources
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.Procesos.resources
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.Properties.Resources.resources
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.csproj.GenerateResource.cache
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.AssemblyInfoInputs.cache
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.AssemblyInfo.cs
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.sourcelink.json
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.dll
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\refint\SOProyecto.dll
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.pdb
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
+C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\ref\SOProyecto.dll

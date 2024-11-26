@@ -20,7 +20,7 @@ namespace SOProyecto
         public Procesos(int i)
         {
             indice = i;
-            num = 1;
+            num = 1; //para saber el numero del proceso
             InitializeComponent();
             lbProcess.Text = $"Proceso {num}";
         }

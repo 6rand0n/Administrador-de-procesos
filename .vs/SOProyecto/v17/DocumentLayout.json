@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Visual Studio Proyectos\\SOProyecto\\",
+  "WorkspaceRootPath": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|d:\\visual studio proyectos\\soproyecto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\user\\documents\\sistemas operativos\\proyecto\\administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|D:\\Visual Studio Proyectos\\SOProyecto\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\user\\documents\\sistemas operativos\\proyecto\\administrador-de-procesos\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|d:\\visual studio proyectos\\soproyecto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\user\\documents\\sistemas operativos\\proyecto\\administrador-de-procesos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\user\\documents\\sistemas operativos\\proyecto\\administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|d:\\visual studio proyectos\\soproyecto\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,21 +30,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Visual Studio Proyectos\\SOProyecto\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Visual Studio Proyectos\\SOProyecto\\Form1.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwCYAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T19:48:33.25Z",
               "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Bookmark",
@@ -50,9 +58,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Visual Studio Proyectos\\SOProyecto\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Visual Studio Proyectos\\SOProyecto\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T16:51:04.843Z",
@@ -60,24 +68,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T23:59:15.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form2.cs",
-              "DocumentMoniker": "D:\\Visual Studio Proyectos\\SOProyecto\\Form2.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "D:\\Visual Studio Proyectos\\SOProyecto\\Form2.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAwwCMAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T15:08:17.447Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Form2.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Visual Studio Proyectos\\SOProyecto\\Form2.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "D:\\Visual Studio Proyectos\\SOProyecto\\Form2.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form2.cs [Dise\u00F1o]",
               "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T15:08:12.567Z",
