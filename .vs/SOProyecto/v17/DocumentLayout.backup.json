@@ -1,26 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\",
+  "WorkspaceRootPath": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\eliri\\onedrive\\documentos\\proyecto_sistemas_operativos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\azfaj\\onedrive\\escritorio\\so\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\eliri\\onedrive\\documentos\\proyecto_sistemas_operativos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\eliri\\onedrive\\documentos\\proyecto_sistemas_operativos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\eliri\\onedrive\\documentos\\proyecto_sistemas_operativos\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\azfaj\\onedrive\\escritorio\\so\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\azfaj\\onedrive\\escritorio\\so\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\azfaj\\onedrive\\escritorio\\so\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Form1.cs*",
-              "RelativeToolTip": "Form1.cs*",
-              "ViewState": "AgIAACYAAAAAAAAAAAAAACsAAAAqAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAIwOkAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T19:48:33.25Z",
               "IsPinned": true,
@@ -48,49 +48,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Form1.cs [Design]*",
-              "RelativeToolTip": "Form1.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T16:51:04.843Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T23:59:15.351Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form2.cs",
-              "DocumentMoniker": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Form2.cs",
-              "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Form2.cs",
-              "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T15:08:17.447Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Bookmark",
@@ -98,14 +60,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form2.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\eliri\\OneDrive\\Documentos\\Proyecto_sistemas_operativos\\Form2.cs",
-              "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form2.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form2.cs [Dise\u00F1o]",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T15:08:12.567Z"
+              "WhenOpened": "2024-11-25T16:51:04.843Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAGcBAAAAAAAAAAAnwIIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T23:33:22.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form2.cs",
+              "RelativeDocumentMoniker": "Form2.cs",
+              "ToolTip": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form2.cs",
+              "RelativeToolTip": "Form2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T15:08:17.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form2.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form2.cs",
+              "RelativeDocumentMoniker": "Form2.cs",
+              "ToolTip": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\SO\\Form2.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T15:08:12.567Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

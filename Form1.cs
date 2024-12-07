@@ -3,36 +3,55 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using static SOProyecto.Program;
+using System.Timers;
 
 namespace SOProyecto
 {
     public partial class Form1 : Form
     {
-
-
-
         static public int RAT, RBT, RCT;
-        private List<Proceso> procesos = new List<Proceso>();//almacena procesos 
+        private List<Proceso> procesos = new List<Proceso>();
+        private System.Timers.Timer ejecucionTimer;
+        private int tiempoDeVida = 10;
+        private int procesoIndex = 0;
+        private int tiempoTerminado = 5;
+        static int tiempoCambioEstado = 1;
+
         public Form1()
         {
             InitializeComponent();
             lbA.Text = Convert.ToString(RAT);
             lbB.Text = Convert.ToString(RBT);
             lbC.Text = Convert.ToString(RCT);
+
+ 
+            ejecucionTimer = new System.Timers.Timer(1000);
+            ejecucionTimer.Elapsed += OnTimedEvent;
+            ejecucionTimer.AutoReset = true;
+
+
+            btnResumeSimulation.Enabled = false;//solo se habilita cuando esta detenida la simulacion
+            btnClearProcesses.Enabled = false;
+
+
+            trackBarSpeed.Scroll += trackBarSpeed_Scroll;
+            lblSpeed.Text = trackBarSpeed.Value.ToString() + " ms";
         }
+
 
         public class Proceso
         {
             public int ID { get; set; }
             public string Nombre { get; set; }
-            public int Memoria { get; set; }  // Recursos que usa la memoria
-            public int CPU { get; set; }      // Recursos que usa la CPU
-            public int TiempoEjecucion { get; set; } // el tiempo que se esta ejecutando
-            public string Estado { get; set; } // Que proceso se encuentra
+            public int Memoria { get; set; }
+            public int CPU { get; set; }
+            public int TiempoEjecucion { get; set; }
+            public string Estado { get; set; }
+            public string Swap { get; set; }
+            public int TiempoRestante { get; set; }
+            public int TiempoTerminado { get; set; }
+            public int TiempoEnAmarillo { get; set; }
 
-            public string Swap { get; set; } //Donde esta el proceso en memoria principal o en disco duro
-
-            // Constructor del proceso
             public Proceso(int id, string nombre, int memoria, int cpu, int tiempoEjecucion)
             {
                 this.ID = id;
@@ -42,6 +61,9 @@ namespace SOProyecto
                 this.TiempoEjecucion = tiempoEjecucion;
                 this.Estado = "En espera";
                 this.Swap = "Desconocido";
+                this.TiempoRestante = tiempoEjecucion;
+                this.TiempoTerminado = 0;
+                this.TiempoEnAmarillo = tiempoCambioEstado;
             }
         }
 
@@ -51,50 +73,115 @@ namespace SOProyecto
             if (num > 0)
             {
                 this.Hide();
+
                 Procesos procesosV = new Procesos(num);
                 procesosV.ShowDialog();
                 for (int i = 0; i < num; i++)
                 {
-                    // - A quien le toque la insercion de procesos:
-
-                    // Aqui deberan usar un vector/matriz static para traerse la info de los procesos, esto para hacer la tabla y el objeto de cada uno
-                    // Con el bucle crean los objetos 
-                    // FALTA VERIFICACION U CUALQUIER METODO DE ADMINISTRACION A USAR - Esto en el Form 2 
-                    // FALTA CREAR OBJETO DE LA CLASE DEL PROCESO - Esto aqui
-                    // Crear el proceso con los valores obtenidos
                     Proceso nuevoProceso = new Proceso(
-                        Form1.RAT, // Asumiendo que RAT es un valor del formulario
+                        Form1.RAT,
                         "Proceso " + (i + 1),
-                        10,  // Ejemplo de valor para Memoria
-                        5,   // Ejemplo de valor para CPU
-                        100  // Ejemplo de valor para TiempoEjecucion
+                        10,
+                        5,
+                        10
                     );
                     AgregarProceso(nuevoProceso);
                 }
                 lbA.Text = Convert.ToString(RAT);
                 lbB.Text = Convert.ToString(RBT);
                 lbC.Text = Convert.ToString(RCT);
+
                 NumProcess.Value = 0;
                 this.Show();
-                MostrarProceso();//llamo a la funcion
+                MostrarProceso();
+                ejecucionTimer.Start();
+
+                ActualizarContador();
+                btnResumeSimulation.Enabled = false; // Deshabilitar el boton de reanudar al iniciar la simulación
+                btnClearProcesses.Enabled = false;
             }
             else
             {
                 MessageBox.Show("Selecciona un numero de procesos valido!");
             }
-            
         }
 
-
-        public void AgregarProceso(Proceso nuevoProceso)
+        private void OnTimedEvent(System.Object source, ElapsedEventArgs e)
         {
-            procesos.Add(nuevoProceso);
-        }
+            this.Invoke((MethodInvoker)delegate
+            {
+                for (int i = 0; i < procesos.Count;)
+                {
+                    var proceso = procesos[i];
 
+                    if (proceso.TiempoEnAmarillo > 0)
+                    {
+                        proceso.Estado = "Inicializando";
+                        proceso.TiempoEnAmarillo--;
+                        MostrarProceso();
+                    }
+                    else if (proceso.Estado == "Inicializando" && proceso.TiempoEnAmarillo == 0)
+                    {
+                        proceso.Estado = "Ejecutando";
+                        proceso.TiempoRestante--;
+                        proceso.TiempoEjecucion--;
+                        MostrarProceso();
+                    }
+
+                    if (proceso.Estado == "Ejecutando" && proceso.TiempoRestante > 0)
+                    {
+                        proceso.TiempoRestante--;
+                        proceso.TiempoEjecucion--;
+                        MostrarProceso();
+                    }
+
+                    if (proceso.TiempoRestante == 0 && proceso.Estado != "Terminado")
+                    {
+                        proceso.Estado = "Terminado";
+                        proceso.TiempoTerminado = tiempoTerminado;
+                        MostrarProceso();
+                    }
+
+                    if (proceso.Estado == "Terminado" && proceso.TiempoTerminado > 0)
+                    {
+                        proceso.TiempoTerminado--;
+                        MostrarProceso();
+
+                        if (proceso.TiempoTerminado == 0)
+                        {
+                            procesos.RemoveAt(i);
+                            ActualizarContador();
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                    else if (proceso.Estado != "Terminado")
+                    {
+                        i++;
+                    }
+                }
+
+                if (procesos.Count == 0)
+                {
+                    ejecucionTimer.Stop();
+                    btnResumeSimulation.Enabled = false;
+                    btnClearProcesses.Enabled = false;
+                }
+
+                MostrarProceso();
+            });
+        }
         private void MostrarProceso()
         {
-            dataGridView1.Rows.Clear(); //limpia el data grid
+            if (InvokeRequired)
+            {
+                Invoke(new Action(MostrarProceso));
+                return;
+            }
 
+            dataGridView1.Rows.Clear();
             if (procesos.Count == 0)
             {
                 MessageBox.Show("No hay procesos para mostrar.");
@@ -103,29 +190,31 @@ namespace SOProyecto
 
             foreach (var proceso in procesos)
             {
-                dataGridView1.Rows.Add(proceso.ID, proceso.Nombre, proceso.Memoria, proceso.CPU, proceso.TiempoEjecucion, proceso.Estado, proceso.Swap);
+                int rowIndex = dataGridView1.Rows.Add(proceso.ID, proceso.Nombre, proceso.Memoria, proceso.CPU, proceso.TiempoEjecucion, proceso.Estado, proceso.Swap, proceso.TiempoRestante);
+
+                if (proceso.Estado == "Inicializando")
+                {
+                    dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+                }
+                else if (proceso.Estado == "Ejecutando")
+                {
+                    dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
+                }
+                else if (proceso.Estado == "Terminado")
+                {
+                    dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Gray;
+                }
+                else
+                {
+                    dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.White;
+                }
             }
         }
 
-
-        private void label2_Click(object sender, EventArgs e)
+        public void AgregarProceso(Proceso nuevoProceso)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            procesos.Add(nuevoProceso);
+            ActualizarContador();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -136,6 +225,68 @@ namespace SOProyecto
             this.dataGridView1.Columns.Add("CPU", "CPU");
             this.dataGridView1.Columns.Add("TiempoEjecucion", "Tiempo de Ejecución");
             this.dataGridView1.Columns.Add("Estado", "Estado");
+            this.dataGridView1.Columns.Add("Swap", "Swap");
+            this.dataGridView1.Columns.Add("TiempoRestante", "Tiempo Restante");
+        }
+
+        private void ActualizarContador()
+        {
+            lblProcesoCount.Text = procesos.Count.ToString() + " Procesos";
+        }
+
+        private void trackBarSpeed_Scroll(object sender, EventArgs e)
+        {
+            int intervalo = trackBarSpeed.Value;
+            ejecucionTimer.Interval = intervalo;
+            lblSpeed.Text = intervalo.ToString() + " ms";
+        }
+
+        private void btnStopSimulation_Click(object sender, EventArgs e)
+        {
+
+            if (procesos.Count > 0)
+            {
+                ejecucionTimer.Stop();
+                btnResumeSimulation.Enabled = true;
+                btnClearProcesses.Enabled = true;
+                MessageBox.Show("Simulacion detenida.");
+            }
+            else
+            {
+                MessageBox.Show("No hay procesos para detener.");
+            }
+        }
+
+        private void btnClearProcesses_Click(object sender, EventArgs e)
+        {
+
+            if (btnClearProcesses.Enabled)
+            {
+                if (procesos.Count > 0)
+                {
+                    procesos.Clear();
+
+                    ActualizarContador();
+
+                    MostrarProceso();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("No hay procesos para borrar.");
+                }
+                btnClearProcesses.Enabled = false;
+            }
+        }
+
+        private void btnResumeSimulation_Click(object sender, EventArgs e)
+        {
+            if (!ejecucionTimer.Enabled)
+            {
+                ejecucionTimer.Start();
+                btnResumeSimulation.Enabled = false; 
+                MessageBox.Show("Simulacion reanudada.");
+            }
         }
     }
 }
