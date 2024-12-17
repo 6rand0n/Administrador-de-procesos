@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using static SOProyecto.Program;
 using System.Timers;
+using System.Diagnostics.Eventing.Reader;
 
 namespace SOProyecto
 {
@@ -24,11 +25,11 @@ namespace SOProyecto
             lbB.Text = Convert.ToString(RBT);
             lbC.Text = Convert.ToString(RCT);
 
- 
+
             ejecucionTimer = new System.Timers.Timer(1000);
             ejecucionTimer.Elapsed += OnTimedEvent;
             ejecucionTimer.AutoReset = true;
-
+            ejecucionTimer.Start();
 
             btnResumeSimulation.Enabled = false;//solo se habilita cuando esta detenida la simulacion
             btnClearProcesses.Enabled = false;
@@ -110,9 +111,16 @@ namespace SOProyecto
         {
             this.Invoke((MethodInvoker)delegate
             {
+
+                //ponemos para generar un proceso aleatorio
+                Proceso nuevoProceso = GeneracionDeProcesos();//guardamos el procesos que nos de la generacion de procesos
+                AgregarProceso(nuevoProceso);
+
                 for (int i = 0; i < procesos.Count;)
                 {
                     var proceso = procesos[i];
+
+                    ActualizarSwap(proceso);
 
                     if (proceso.TiempoEnAmarillo > 0)
                     {
@@ -173,6 +181,31 @@ namespace SOProyecto
                 MostrarProceso();
             });
         }
+
+        private void ActualizarSwap(Proceso proceso)
+        {
+            Random random = new Random();
+
+            if (proceso.Estado == "Ejecutando")
+            {
+                if (random.Next(0, 10) < 3) //30% de probabilidad que ocurra esto
+                {
+                    proceso.Swap = "En swap";
+                }
+                else
+                {
+                    proceso.Swap = "En memoria";
+                }
+            }else if (proceso.Estado == "Inicializando")
+            {
+                proceso.Swap = "En espera";
+            }else if (proceso.Estado == "Terminado")
+            {
+                proceso.Swap = "Finalizado";
+            }
+
+        }
+
         private void MostrarProceso()
         {
             if (InvokeRequired)
@@ -269,7 +302,7 @@ namespace SOProyecto
                     ActualizarContador();
 
                     MostrarProceso();
-                    
+
                 }
                 else
                 {
@@ -284,9 +317,35 @@ namespace SOProyecto
             if (!ejecucionTimer.Enabled)
             {
                 ejecucionTimer.Start();
-                btnResumeSimulation.Enabled = false; 
+                btnResumeSimulation.Enabled = false;
                 MessageBox.Show("Simulacion reanudada.");
             }
+        }
+
+        private Proceso GeneracionDeProcesos()
+        {
+
+            int id = RAT++;
+
+            string nombre = "Proceso " + id; //generamos el proceso con el id 
+
+            Random random = new Random();   //creamos una variable para datos aleatorios 
+
+            int memoria = random.Next(1, 100); //puede ocupar memoria entre 1 a 100 mb de memoria
+
+            int cpu = random.Next(1, 15); //1 a 15% del procesador
+
+            int tiempoEjecucion = random.Next(4, 15);
+
+            Proceso nuevoProceso = new Proceso(id, nombre, memoria, cpu, tiempoEjecucion);
+
+
+            return nuevoProceso;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

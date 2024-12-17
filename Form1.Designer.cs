@@ -384,6 +384,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Administrador de procesos";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)NumProcess).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackBarSpeed).EndInit();
