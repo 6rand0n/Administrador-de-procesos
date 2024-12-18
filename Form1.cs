@@ -9,6 +9,8 @@ using System.Diagnostics;
 using System;
 using System.Numerics;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Net.Http.Headers;
+using System.Text;
 
 namespace SOProyecto
 {
@@ -25,13 +27,19 @@ namespace SOProyecto
         static public int tiempoCambioEstado = 1;
         int contador = 0, procesamiento = 1000, maxProce = 5000, memoriaMax = 512;
         int intervalo = 1;
+        private AsignadorMemoria asignador;
+
+
+        private decimal totalTimepoEnAtencion = 0; //suma total para el tiempo de ejecucion
+        private int totalDeProcesosAtendidos = 0; //suma total de los procesos que fueron atendidos
+
 
         public Form1()
         {
 
             InitializeComponent();
             Log.Text = "[0, 4096, 0]";
-
+            asignador = new AsignadorMemoria(4096);
             lbMemoria.Text = Convert.ToString(memoria);
 
 
@@ -54,6 +62,18 @@ namespace SOProyecto
         {
 
         }
+        private string ObtenerEstadoMemoria()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var bloque in asignador.ObtenerBloquesMemoria())
+            {
+                string estado = bloque.EstaLibre ? "[0," : $"[{bloque.ProcesoID},";
+                sb.Append($"{estado}{bloque.Tamaño},{bloque.EstaLibre}]");
+            }
+            return sb.ToString();
+        }
+
+
 
         private void OnTimedEvent(System.Object source, ElapsedEventArgs e)
         {
@@ -63,7 +83,15 @@ namespace SOProyecto
                 //ponemos para generar un proceso aleatorio
                 Proceso nuevoProceso = GeneracionDeProcesos();//guardamos el procesos que nos de la generacion de procesos
                 AgregarProceso(nuevoProceso);
-                Log.Text += "\n[0, 4096, 0]"; // Ejemplo
+                //Log.Text += "\n[0, 4096, 0]"; // Ejemplo
+
+                // Ejemplo: Asignar un nuevo proceso
+                if (asignador.AsignarMemoria(nuevoProceso.ID, nuevoProceso.Memoria, nuevoProceso.TiempoEjecucion))
+                {
+                    Log.Text += ObtenerEstadoMemoria();
+                    memoria -= nuevoProceso.Memoria;
+                    lbMemoria.Text = memoria.ToString();
+                }
 
                 for (int i = 0; i < procesos.Count;)
                 {
@@ -85,6 +113,13 @@ namespace SOProyecto
 
                     if (proceso.Estado == "Ejecutando" && proceso.TiempoRestante > 0)
                     {
+                        Log.Text += $"\nAtendiendo proceso [{proceso.ID},{proceso.Memoria},{proceso.TiempoRestante}]\n";
+                        // Establecer el tiempo de inicio solo si es nulo
+                        if (!proceso.TiempoInicio.HasValue)
+                        {
+                            proceso.TiempoInicio = DateTime.Now;
+                        }
+
                         proceso.TiempoEjecucion -= intervalo * proceso.Procesamiento;
                         proceso.TiempoRestante = proceso.TiempoEjecucion / intervalo;
                         MostrarProceso();
@@ -92,9 +127,28 @@ namespace SOProyecto
 
                     if (proceso.TiempoEjecucion <= 0 && proceso.Estado != "Terminado")
                     {
+
+
+
                         proceso.Estado = "Terminado";
                         proceso.TiempoTerminado = tiempoTerminado;
+
+                        asignador.liberarMemoria(proceso.ID);
+                        memoria += proceso.Memoria; // Actualiza la memoria restante
+                        lbMemoria.Text = memoria.ToString();
+
+
+
+                        if (proceso.TiempoInicio.HasValue)
+                        {
+                            //expresamos esto en un intervalo de tiempo con una variable de tipo TimeSpan
+                            TimeSpan tiempoDeAtencion = DateTime.Now - proceso.TiempoInicio.Value; //tiempo actual - tiempo de inicio del proceso
+                            totalTimepoEnAtencion += (decimal)tiempoDeAtencion.TotalSeconds; //convertimos tiempoDeAtencion a un dato de tipo entero y lo ponemos en segundos
+                            totalDeProcesosAtendidos++; //sumamos los procesos atendidos
+                        }
+
                         procesos.RemoveAt(i);
+
                         ActualizarContador();
                     }
 
@@ -110,9 +164,13 @@ namespace SOProyecto
                     btnResumeSimulation.Enabled = false;
                     btnClearProcesses.Enabled = false;
                 }
-
+                MostrarEstadistica();
                 MostrarProceso();
+
+                Log.Text += "\nImpresión final de ciclo:\n";
+Log.Text += ObtenerEstadoMemoria() + "\n";
             });
+
         }
 
         private void ActualizarSwap(Proceso proceso)
@@ -279,6 +337,18 @@ namespace SOProyecto
             return nuevoProceso;
         }
 
+        private void MostrarEstadistica()
+        {
+
+
+
+            //esta comparacion es para evitar que ocurra un error de dividir 0/0
+            decimal tiempoMedia = totalDeProcesosAtendidos > 0 ? totalTimepoEnAtencion / totalDeProcesosAtendidos : 0; //sacamos la media del tiempo
+            lblTiempoMedi.Text = tiempoMedia.ToString("F2");
+            lblTotalProcesosAtendidos.Text = totalDeProcesosAtendidos.ToString();
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -349,5 +419,12 @@ namespace SOProyecto
             txtMemMax_TextChanged();
             txtProcesamiento_TextChanged();
         }
+
+        
+
+
+
     }
+
+
 }
