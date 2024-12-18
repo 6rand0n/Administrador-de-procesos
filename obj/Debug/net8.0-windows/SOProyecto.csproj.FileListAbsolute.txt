@@ -74,3 +74,21 @@ C:\Users\azfaj\OneDrive\Escritorio\SO\obj\Debug\net8.0-windows\refint\SOProyecto
 C:\Users\azfaj\OneDrive\Escritorio\SO\obj\Debug\net8.0-windows\SOProyecto.pdb
 C:\Users\azfaj\OneDrive\Escritorio\SO\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
 C:\Users\azfaj\OneDrive\Escritorio\SO\obj\Debug\net8.0-windows\ref\SOProyecto.dll
+I:\VSC Proyectos\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.exe
+I:\VSC Proyectos\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.deps.json
+I:\VSC Proyectos\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.runtimeconfig.json
+I:\VSC Proyectos\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.dll
+I:\VSC Proyectos\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.pdb
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.Form1.resources
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.Properties.Resources.resources
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.csproj.GenerateResource.cache
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.GeneratedMSBuildEditorConfig.editorconfig
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.AssemblyInfoInputs.cache
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.AssemblyInfo.cs
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.csproj.CoreCompileInputs.cache
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.sourcelink.json
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.dll
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\refint\SOProyecto.dll
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.pdb
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
+I:\VSC Proyectos\Administrador-de-procesos\obj\Debug\net8.0-windows\ref\SOProyecto.dll

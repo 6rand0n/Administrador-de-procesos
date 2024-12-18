@@ -29,14 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            btnProcess = new Button();
-            NumProcess = new NumericUpDown();
-            label3 = new Label();
-            label4 = new Label();
             label5 = new Label();
-            lbC = new Label();
-            lbB = new Label();
-            lbA = new Label();
             label6 = new Label();
             dataGridView1 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
@@ -46,7 +39,6 @@
             TiempoEjecucion = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             Swap = new DataGridViewTextBoxColumn();
-            label2 = new Label();
             lblProcesoCount = new Label();
             trackBarSpeed = new TrackBar();
             label7 = new Label();
@@ -54,7 +46,23 @@
             btnStopSimulation = new Button();
             btnClearProcesses = new Button();
             btnResumeSimulation = new Button();
-            ((System.ComponentModel.ISupportInitialize)NumProcess).BeginInit();
+            lbMemoria = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label8 = new Label();
+            txtProcesamiento = new TextBox();
+            txtMemMax = new TextBox();
+            txtMaxProce = new TextBox();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label15 = new Label();
+            label14 = new Label();
+            btnAccept = new Button();
+            Log = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBarSpeed).BeginInit();
             SuspendLayout();
@@ -66,58 +74,12 @@
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(0, 9);
+            label1.Location = new Point(0, 13);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(443, 28);
             label1.TabIndex = 0;
             label1.Text = "PapuAdministrador de Papuprocesos Bv";
-            // 
-            // btnProcess
-            // 
-            btnProcess.BackColor = Color.Silver;
-            btnProcess.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnProcess.ForeColor = SystemColors.MenuText;
-            btnProcess.Location = new Point(21, 252);
-            btnProcess.Margin = new Padding(3, 2, 3, 2);
-            btnProcess.Name = "btnProcess";
-            btnProcess.Size = new Size(264, 40);
-            btnProcess.TabIndex = 1;
-            btnProcess.Text = "Añadir Procesos";
-            btnProcess.UseVisualStyleBackColor = false;
-            btnProcess.Click += btnProcess_Click;
-            // 
-            // NumProcess
-            // 
-            NumProcess.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            NumProcess.Location = new Point(305, 254);
-            NumProcess.Margin = new Padding(3, 2, 3, 2);
-            NumProcess.Name = "NumProcess";
-            NumProcess.Size = new Size(131, 42);
-            NumProcess.TabIndex = 2;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(186, 157);
-            label3.Name = "label3";
-            label3.Size = new Size(27, 30);
-            label3.TabIndex = 4;
-            label3.Text = "B";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(281, 157);
-            label4.Name = "label4";
-            label4.Size = new Size(27, 30);
-            label4.TabIndex = 5;
-            label4.Text = "C";
             // 
             // label5
             // 
@@ -125,47 +87,12 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ButtonFace;
-            label5.Location = new Point(138, 106);
+            label5.Location = new Point(147, 178);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(104, 30);
+            label5.Size = new Size(202, 30);
             label5.TabIndex = 6;
-            label5.Text = "Recursos";
-            // 
-            // lbC
-            // 
-            lbC.AutoSize = true;
-            lbC.BackColor = Color.Transparent;
-            lbC.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbC.ForeColor = SystemColors.ActiveCaption;
-            lbC.Location = new Point(281, 220);
-            lbC.Name = "lbC";
-            lbC.Size = new Size(23, 25);
-            lbC.TabIndex = 10;
-            lbC.Text = "0";
-            // 
-            // lbB
-            // 
-            lbB.AutoSize = true;
-            lbB.BackColor = Color.Transparent;
-            lbB.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbB.ForeColor = SystemColors.ActiveCaption;
-            lbB.Location = new Point(186, 220);
-            lbB.Name = "lbB";
-            lbB.Size = new Size(23, 25);
-            lbB.TabIndex = 11;
-            lbB.Text = "0";
-            // 
-            // lbA
-            // 
-            lbA.AutoSize = true;
-            lbA.BackColor = Color.Transparent;
-            lbA.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbA.ForeColor = SystemColors.ActiveCaption;
-            lbA.Location = new Point(80, 220);
-            lbA.Name = "lbA";
-            lbA.Size = new Size(23, 25);
-            lbA.TabIndex = 12;
-            lbA.Text = "0";
+            label5.Text = "Memoria Restante";
             // 
             // label6
             // 
@@ -174,7 +101,8 @@
             label6.BorderStyle = BorderStyle.Fixed3D;
             label6.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(1275, 22);
+            label6.Location = new Point(1639, 31);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(151, 28);
             label6.TabIndex = 13;
@@ -186,10 +114,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Memoria, CPU, TiempoEjecucion, Estado, Swap });
             dataGridView1.GridColor = SystemColors.MenuText;
-            dataGridView1.Location = new Point(442, 36);
+            dataGridView1.Location = new Point(568, 50);
+            dataGridView1.Margin = new Padding(4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(804, 395);
+            dataGridView1.Size = new Size(1034, 553);
             dataGridView1.TabIndex = 15;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -242,18 +171,6 @@
             Swap.Name = "Swap";
             Swap.Width = 125;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(80, 157);
-            label2.Name = "label2";
-            label2.Size = new Size(28, 30);
-            label2.TabIndex = 18;
-            label2.Text = "A";
-            // 
             // lblProcesoCount
             // 
             lblProcesoCount.AutoSize = true;
@@ -261,7 +178,8 @@
             lblProcesoCount.BorderStyle = BorderStyle.Fixed3D;
             lblProcesoCount.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblProcesoCount.ForeColor = SystemColors.Control;
-            lblProcesoCount.Location = new Point(1275, 67);
+            lblProcesoCount.Location = new Point(1639, 94);
+            lblProcesoCount.Margin = new Padding(4, 0, 4, 0);
             lblProcesoCount.Name = "lblProcesoCount";
             lblProcesoCount.Size = new Size(27, 28);
             lblProcesoCount.TabIndex = 20;
@@ -272,11 +190,12 @@
             trackBarSpeed.BackColor = Color.Black;
             trackBarSpeed.Cursor = Cursors.SizeWE;
             trackBarSpeed.Dock = DockStyle.Bottom;
-            trackBarSpeed.Location = new Point(0, 437);
+            trackBarSpeed.Location = new Point(0, 975);
+            trackBarSpeed.Margin = new Padding(4);
             trackBarSpeed.Maximum = 5000;
             trackBarSpeed.Minimum = 100;
             trackBarSpeed.Name = "trackBarSpeed";
-            trackBarSpeed.Size = new Size(1494, 45);
+            trackBarSpeed.Size = new Size(1921, 45);
             trackBarSpeed.TabIndex = 21;
             trackBarSpeed.Value = 1000;
             trackBarSpeed.Scroll += trackBarSpeed_Scroll;
@@ -288,7 +207,8 @@
             label7.BorderStyle = BorderStyle.Fixed3D;
             label7.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.Control;
-            label7.Location = new Point(12, 371);
+            label7.Location = new Point(147, 301);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(193, 28);
             label7.TabIndex = 22;
@@ -301,11 +221,14 @@
             lblSpeed.BorderStyle = BorderStyle.Fixed3D;
             lblSpeed.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSpeed.ForeColor = SystemColors.Control;
-            lblSpeed.Location = new Point(45, 406);
+            lblSpeed.Location = new Point(199, 356);
+            lblSpeed.Margin = new Padding(4, 0, 4, 0);
             lblSpeed.Name = "lblSpeed";
             lblSpeed.Size = new Size(27, 28);
             lblSpeed.TabIndex = 23;
             lblSpeed.Text = "0";
+            lblSpeed.TextAlign = ContentAlignment.MiddleCenter;
+            lblSpeed.Click += lblSpeed_Click;
             // 
             // btnStopSimulation
             // 
@@ -314,10 +237,10 @@
             btnStopSimulation.FlatStyle = FlatStyle.Popup;
             btnStopSimulation.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnStopSimulation.ForeColor = SystemColors.MenuText;
-            btnStopSimulation.Location = new Point(1275, 238);
+            btnStopSimulation.Location = new Point(1639, 333);
             btnStopSimulation.Margin = new Padding(0);
             btnStopSimulation.Name = "btnStopSimulation";
-            btnStopSimulation.Size = new Size(193, 40);
+            btnStopSimulation.Size = new Size(248, 56);
             btnStopSimulation.TabIndex = 24;
             btnStopSimulation.Text = "Detener Simulacion";
             btnStopSimulation.UseVisualStyleBackColor = false;
@@ -330,12 +253,12 @@
             btnClearProcesses.FlatStyle = FlatStyle.Popup;
             btnClearProcesses.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnClearProcesses.ForeColor = SystemColors.MenuText;
-            btnClearProcesses.Location = new Point(1275, 290);
+            btnClearProcesses.Location = new Point(1639, 406);
             btnClearProcesses.Margin = new Padding(0);
             btnClearProcesses.Name = "btnClearProcesses";
-            btnClearProcesses.Size = new Size(193, 40);
+            btnClearProcesses.Size = new Size(248, 56);
             btnClearProcesses.TabIndex = 25;
-            btnClearProcesses.Text = "Limpiar Procesos";
+            btnClearProcesses.Text = "Limpiar y Terminar";
             btnClearProcesses.UseVisualStyleBackColor = false;
             btnClearProcesses.Click += btnClearProcesses_Click;
             // 
@@ -346,22 +269,259 @@
             btnResumeSimulation.FlatStyle = FlatStyle.Popup;
             btnResumeSimulation.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnResumeSimulation.ForeColor = SystemColors.InfoText;
-            btnResumeSimulation.Location = new Point(1275, 343);
+            btnResumeSimulation.Location = new Point(1639, 480);
             btnResumeSimulation.Margin = new Padding(0);
             btnResumeSimulation.Name = "btnResumeSimulation";
-            btnResumeSimulation.Size = new Size(193, 40);
+            btnResumeSimulation.Size = new Size(248, 56);
             btnResumeSimulation.TabIndex = 26;
             btnResumeSimulation.Text = "Continuar Simulacion";
             btnResumeSimulation.UseVisualStyleBackColor = false;
             btnResumeSimulation.Click += btnResumeSimulation_Click;
             // 
+            // lbMemoria
+            // 
+            lbMemoria.AutoSize = true;
+            lbMemoria.BackColor = Color.Transparent;
+            lbMemoria.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMemoria.ForeColor = SystemColors.ActiveCaption;
+            lbMemoria.Location = new Point(199, 240);
+            lbMemoria.Margin = new Padding(4, 0, 4, 0);
+            lbMemoria.Name = "lbMemoria";
+            lbMemoria.Size = new Size(26, 30);
+            lbMemoria.TabIndex = 27;
+            lbMemoria.Text = "0";
+            lbMemoria.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(166, 575);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(161, 28);
+            label2.TabIndex = 28;
+            label2.Text = "Configuracion";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ButtonFace;
+            label3.Location = new Point(60, 631);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(267, 30);
+            label3.TabIndex = 29;
+            label3.Text = "Procesamiento asignado";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ButtonFace;
+            label4.Location = new Point(35, 788);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(325, 30);
+            label4.TabIndex = 30;
+            label4.Text = "Memoria Maxima por proceso";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.ButtonFace;
+            label8.Location = new Point(496, 631);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(289, 30);
+            label8.TabIndex = 31;
+            label8.Text = "Maximo de procesamiento";
+            // 
+            // txtProcesamiento
+            // 
+            txtProcesamiento.BackColor = Color.FromArgb(224, 224, 224);
+            txtProcesamiento.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
+            txtProcesamiento.ForeColor = SystemColors.Highlight;
+            txtProcesamiento.Location = new Point(138, 716);
+            txtProcesamiento.Name = "txtProcesamiento";
+            txtProcesamiento.Size = new Size(113, 36);
+            txtProcesamiento.TabIndex = 32;
+            txtProcesamiento.Text = "1000";
+            txtProcesamiento.TextAlign = HorizontalAlignment.Center;
+            // 
+            // txtMemMax
+            // 
+            txtMemMax.BackColor = Color.FromArgb(224, 224, 224);
+            txtMemMax.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
+            txtMemMax.ForeColor = SystemColors.Highlight;
+            txtMemMax.Location = new Point(140, 873);
+            txtMemMax.Name = "txtMemMax";
+            txtMemMax.Size = new Size(113, 36);
+            txtMemMax.TabIndex = 33;
+            txtMemMax.Text = "512";
+            txtMemMax.TextAlign = HorizontalAlignment.Center;
+            // 
+            // txtMaxProce
+            // 
+            txtMaxProce.BackColor = Color.FromArgb(224, 224, 224);
+            txtMaxProce.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
+            txtMaxProce.ForeColor = SystemColors.Highlight;
+            txtMaxProce.Location = new Point(581, 716);
+            txtMaxProce.Name = "txtMaxProce";
+            txtMaxProce.Size = new Size(113, 36);
+            txtMaxProce.TabIndex = 34;
+            txtMaxProce.Text = "5000";
+            txtMaxProce.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.ActiveCaption;
+            label9.Location = new Point(258, 719);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(43, 30);
+            label9.TabIndex = 35;
+            label9.Text = "ms";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = SystemColors.ActiveCaption;
+            label10.Location = new Point(701, 719);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(43, 30);
+            label10.TabIndex = 36;
+            label10.Text = "ms";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
+            label11.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = SystemColors.ActiveCaption;
+            label11.Location = new Point(260, 876);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(39, 30);
+            label11.TabIndex = 37;
+            label11.Text = "kb";
+            label11.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.ForeColor = SystemColors.ActiveCaption;
+            label12.Location = new Point(271, 241);
+            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(39, 30);
+            label12.TabIndex = 38;
+            label12.Text = "kb";
+            label12.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.ForeColor = SystemColors.ButtonFace;
+            label13.Location = new Point(239, 930);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(121, 30);
+            label13.TabIndex = 39;
+            label13.Text = "Velocidad:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = Color.Transparent;
+            label15.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = SystemColors.ButtonFace;
+            label15.Location = new Point(1391, 826);
+            label15.Margin = new Padding(4, 0, 4, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(0, 30);
+            label15.TabIndex = 41;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
+            label14.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = SystemColors.ButtonFace;
+            label14.Location = new Point(1242, 631);
+            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(51, 30);
+            label14.TabIndex = 42;
+            label14.Text = "Log";
+            // 
+            // btnAccept
+            // 
+            btnAccept.BackColor = SystemColors.ActiveCaption;
+            btnAccept.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAccept.ForeColor = SystemColors.ActiveCaptionText;
+            btnAccept.Location = new Point(568, 838);
+            btnAccept.Name = "btnAccept";
+            btnAccept.Size = new Size(137, 68);
+            btnAccept.TabIndex = 43;
+            btnAccept.Text = "Aplicar";
+            btnAccept.UseVisualStyleBackColor = false;
+            btnAccept.Click += btnAccept_Click;
+            // 
+            // Log
+            // 
+            Log.BackColor = SystemColors.Menu;
+            Log.Font = new Font("Segoe UI Variable Small Semibol", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Log.Location = new Point(995, 676);
+            Log.Name = "Log";
+            Log.Size = new Size(543, 266);
+            Log.TabIndex = 44;
+            Log.Text = "";
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             BackgroundImage = Properties.Resources.FondoSO;
-            ClientSize = new Size(1494, 482);
+            ClientSize = new Size(1921, 1020);
+            Controls.Add(Log);
+            Controls.Add(btnAccept);
+            Controls.Add(label14);
+            Controls.Add(label15);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(txtMaxProce);
+            Controls.Add(txtMemMax);
+            Controls.Add(txtProcesamiento);
+            Controls.Add(label8);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(lbMemoria);
             Controls.Add(btnResumeSimulation);
             Controls.Add(btnClearProcesses);
             Controls.Add(btnStopSimulation);
@@ -369,23 +529,14 @@
             Controls.Add(label7);
             Controls.Add(trackBarSpeed);
             Controls.Add(lblProcesoCount);
-            Controls.Add(label2);
             Controls.Add(dataGridView1);
             Controls.Add(label6);
-            Controls.Add(lbA);
-            Controls.Add(lbB);
-            Controls.Add(lbC);
             Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(NumProcess);
-            Controls.Add(btnProcess);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "Form1";
             Text = "Administrador de procesos";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)NumProcess).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackBarSpeed).EndInit();
             ResumeLayout(false);
@@ -395,17 +546,10 @@
         #endregion
 
         private Label label1;
-        private Button btnProcess;
-        private NumericUpDown NumProcess;
-        private Label label3;
-        private Label label4;
         private Label label5;
         private TextBox txtRA;
         private TextBox txtRB;
         private TextBox txtRC;
-        private Label lbC;
-        private Label lbB;
-        private Label lbA;
         private Label label6;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn ID;
@@ -415,7 +559,6 @@
         private DataGridViewTextBoxColumn TiempoEjecucion;
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn Swap;
-        private Label label2;
         private Label lblProcesoCount;
         private TrackBar trackBarSpeed;
         private Label label7;
@@ -423,5 +566,22 @@
         private Button btnStopSimulation;
         private Button btnClearProcesses;
         private Button btnResumeSimulation;
+        private Label lbMemoria;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label8;
+        private TextBox txtProcesamiento;
+        private TextBox txtMemMax;
+        private TextBox txtMaxProce;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label15;
+        private Label label14;
+        private Button btnAccept;
+        private RichTextBox Log;
     }
 }
