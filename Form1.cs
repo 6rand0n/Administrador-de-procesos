@@ -33,35 +33,29 @@ namespace SOProyecto
         private decimal totalTimepoEnAtencion = 0; //suma total para el tiempo de ejecucion
         private int totalDeProcesosAtendidos = 0; //suma total de los procesos que fueron atendidos
 
-
         public Form1()
         {
-
             InitializeComponent();
             Log.Text = "[0, 4096, 0]";
             asignador = new AsignadorMemoria(4096);
             lbMemoria.Text = Convert.ToString(memoria);
 
-
+            // Inicializamos el timer con un intervalo base
             ejecucionTimer = new System.Timers.Timer(1000);
             ejecucionTimer.Elapsed += OnTimedEvent;
             ejecucionTimer.AutoReset = true;
             ejecucionTimer.Start();
 
-            btnResumeSimulation.Enabled = false;//solo se habilita cuando esta detenida la simulacion
+            btnResumeSimulation.Enabled = false; // Solo se habilita cuando está detenida la simulación
             btnClearProcesses.Enabled = false;
 
-
             trackBarSpeed.Scroll += trackBarSpeed_Scroll;
-            lblSpeed.Text = trackBarSpeed.Value.ToString() + " ms";
+            lblSpeed.Text = "Velocidad: x" + trackBarSpeed.Value.ToString();
         }
 
 
 
-        private void btnProcess_Click(object sender, EventArgs e)
-        {
-
-        }
+      
         private string ObtenerEstadoMemoria()
         {
             StringBuilder sb = new StringBuilder();
@@ -79,13 +73,11 @@ namespace SOProyecto
         {
             this.Invoke((MethodInvoker)delegate
             {
-
-                //ponemos para generar un proceso aleatorio
-                Proceso nuevoProceso = GeneracionDeProcesos();//guardamos el procesos que nos de la generacion de procesos
+                // Generación de procesos aleatorios
+                Proceso nuevoProceso = GeneracionDeProcesos();
                 AgregarProceso(nuevoProceso);
-                //Log.Text += "\n[0, 4096, 0]"; // Ejemplo
 
-                // Ejemplo: Asignar un nuevo proceso
+                // Asignar memoria al nuevo proceso
                 if (asignador.AsignarMemoria(nuevoProceso.ID, nuevoProceso.Memoria, nuevoProceso.TiempoEjecucion))
                 {
                     Log.Text += ObtenerEstadoMemoria();
@@ -93,68 +85,58 @@ namespace SOProyecto
                     lbMemoria.Text = memoria.ToString();
                 }
 
-                for (int i = 0; i < procesos.Count;)
+                // Ejecutar un solo proceso a la vez
+                if (procesos.Count > 0)
                 {
-                    var proceso = procesos[i];
-
+                    // Seleccionar el primer proceso de la lista para ejecutarlo (Round Robin)
+                    var proceso = procesos[0];
                     ActualizarSwap(proceso);
 
-                    if (proceso.TiempoEnAmarillo > 0)
-                    {
-                        proceso.Estado = "Inicializando";
-                        proceso.TiempoEnAmarillo--;
-                        MostrarProceso();
-                    }
-                    else if (proceso.Estado == "Inicializando" && proceso.TiempoEnAmarillo == 0)
-                    {
-                        proceso.Estado = "Ejecutando";
-                        MostrarProceso();
-                    }
+                    // Cambiar estado del proceso de forma aleatoria
+                    Random random = new Random();
+                    int estadoAleatorio = random.Next(0, 3); // 0 = Ready, 1 = Running, 2 = Blocked
 
-                    if (proceso.Estado == "Ejecutando" && proceso.TiempoRestante > 0)
+                    if (estadoAleatorio == 0)
+                        proceso.Estado = "Ready";
+                    else if (estadoAleatorio == 1)
+                        proceso.Estado = "Running";
+                    else
+                        proceso.Estado = "Blocked";
+
+                    MostrarProceso();
+
+                    if (proceso.Estado == "Running" && proceso.TiempoRestante > 0)
                     {
                         Log.Text += $"\nAtendiendo proceso [{proceso.ID},{proceso.Memoria},{proceso.TiempoRestante}]\n";
-                        // Establecer el tiempo de inicio solo si es nulo
+
                         if (!proceso.TiempoInicio.HasValue)
                         {
                             proceso.TiempoInicio = DateTime.Now;
                         }
 
-                        proceso.TiempoEjecucion -= intervalo * proceso.Procesamiento;
-                        proceso.TiempoRestante = proceso.TiempoEjecucion / intervalo;
+                        proceso.TiempoEjecucion -= trackBarSpeed.Value * proceso.Procesamiento;
+                        proceso.TiempoRestante = proceso.TiempoEjecucion / trackBarSpeed.Value;
                         MostrarProceso();
                     }
 
                     if (proceso.TiempoEjecucion <= 0 && proceso.Estado != "Terminado")
                     {
-
-
-
                         proceso.Estado = "Terminado";
                         proceso.TiempoTerminado = tiempoTerminado;
 
                         asignador.liberarMemoria(proceso.ID);
-                        memoria += proceso.Memoria; // Actualiza la memoria restante
+                        memoria += proceso.Memoria;
                         lbMemoria.Text = memoria.ToString();
-
-
 
                         if (proceso.TiempoInicio.HasValue)
                         {
-                            //expresamos esto en un intervalo de tiempo con una variable de tipo TimeSpan
-                            TimeSpan tiempoDeAtencion = DateTime.Now - proceso.TiempoInicio.Value; //tiempo actual - tiempo de inicio del proceso
-                            totalTimepoEnAtencion += (decimal)tiempoDeAtencion.TotalSeconds; //convertimos tiempoDeAtencion a un dato de tipo entero y lo ponemos en segundos
-                            totalDeProcesosAtendidos++; //sumamos los procesos atendidos
+                            TimeSpan tiempoDeAtencion = DateTime.Now - proceso.TiempoInicio.Value;
+                            totalTimepoEnAtencion += (decimal)tiempoDeAtencion.TotalSeconds;
+                            totalDeProcesosAtendidos++;
                         }
 
-                        procesos.RemoveAt(i);
-
+                        procesos.RemoveAt(0); // Eliminar el proceso ejecutado
                         ActualizarContador();
-                    }
-
-                    else if (proceso.Estado != "Terminado")
-                    {
-                        i++;
                     }
                 }
 
@@ -164,22 +146,25 @@ namespace SOProyecto
                     btnResumeSimulation.Enabled = false;
                     btnClearProcesses.Enabled = false;
                 }
+
                 MostrarEstadistica();
                 MostrarProceso();
 
                 Log.Text += "\nImpresión final de ciclo:\n";
-Log.Text += ObtenerEstadoMemoria() + "\n";
+                Log.Text += ObtenerEstadoMemoria() + "\n";
             });
-
         }
+
+
+
 
         private void ActualizarSwap(Proceso proceso)
         {
             Random random = new Random();
 
-            if (proceso.Estado == "Ejecutando")
+            if (proceso.Estado == "Running")
             {
-                if (random.Next(0, 10) < 3) //30% de probabilidad que ocurra esto
+                if (random.Next(0, 10) < 3) // 30% de probabilidad que ocurra esto
                 {
                     proceso.Swap = "En swap";
                 }
@@ -188,7 +173,11 @@ Log.Text += ObtenerEstadoMemoria() + "\n";
                     proceso.Swap = "En memoria";
                 }
             }
-            else if (proceso.Estado == "Inicializando")
+            else if (proceso.Estado == "Ready")
+            {
+                proceso.Swap = "En espera";
+            }
+            else if (proceso.Estado == "Blocked")
             {
                 proceso.Swap = "En espera";
             }
@@ -196,7 +185,6 @@ Log.Text += ObtenerEstadoMemoria() + "\n";
             {
                 proceso.Swap = "Finalizado";
             }
-
         }
 
         private void MostrarProceso()
@@ -262,10 +250,10 @@ Log.Text += ObtenerEstadoMemoria() + "\n";
 
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
         {
-            intervalo = trackBarSpeed.Value;
-            ejecucionTimer.Interval = intervalo;
-            lblSpeed.Text = intervalo.ToString() + " ms";
+            lblSpeed.Text = "Velocidad: x" + trackBarSpeed.Value.ToString();
+            ejecucionTimer.Interval = 1000 / trackBarSpeed.Value;
         }
+
 
         private void btnStopSimulation_Click(object sender, EventArgs e)
         {
@@ -317,7 +305,6 @@ Log.Text += ObtenerEstadoMemoria() + "\n";
 
         private Proceso GeneracionDeProcesos()
         {
-
             int id = contador++;
 
             string nombre = "Proceso " + id; //generamos el proceso con el id 
@@ -329,10 +316,9 @@ Log.Text += ObtenerEstadoMemoria() + "\n";
 
             int cpu = random.Next(1, 15); //1 a 15% del procesador
 
-            int tiempoEjecucion = random.Next(1000, maxProce);
+            int tiempoEjecucion = random.Next(1000, maxProce) / trackBarSpeed.Value; // Ajustar según la velocidad
 
             Proceso nuevoProceso = new Proceso(id, nombre, memoria, cpu, tiempoEjecucion, procesamiento);
-
 
             return nuevoProceso;
         }

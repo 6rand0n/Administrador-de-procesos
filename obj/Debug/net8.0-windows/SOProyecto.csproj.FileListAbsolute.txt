@@ -110,3 +110,21 @@ C:\Users\USER\Documents\sistemas operativos\Proyecto\brandon\Administrador-de-pr
 C:\Users\USER\Documents\sistemas operativos\Proyecto\brandon\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.pdb
 C:\Users\USER\Documents\sistemas operativos\Proyecto\brandon\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
 C:\Users\USER\Documents\sistemas operativos\Proyecto\brandon\Administrador-de-procesos\obj\Debug\net8.0-windows\ref\SOProyecto.dll
+C:\Users\azfaj\OneDrive\Escritorio\5\bin\Debug\net8.0-windows\SOProyecto.exe
+C:\Users\azfaj\OneDrive\Escritorio\5\bin\Debug\net8.0-windows\SOProyecto.deps.json
+C:\Users\azfaj\OneDrive\Escritorio\5\bin\Debug\net8.0-windows\SOProyecto.runtimeconfig.json
+C:\Users\azfaj\OneDrive\Escritorio\5\bin\Debug\net8.0-windows\SOProyecto.dll
+C:\Users\azfaj\OneDrive\Escritorio\5\bin\Debug\net8.0-windows\SOProyecto.pdb
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.Form1.resources
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.Properties.Resources.resources
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.csproj.GenerateResource.cache
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.AssemblyInfoInputs.cache
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.AssemblyInfo.cs
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.csproj.CoreCompileInputs.cache
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.sourcelink.json
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.dll
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\refint\SOProyecto.dll
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.pdb
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\SOProyecto.genruntimeconfig.cache
+C:\Users\azfaj\OneDrive\Escritorio\5\obj\Debug\net8.0-windows\ref\SOProyecto.dll

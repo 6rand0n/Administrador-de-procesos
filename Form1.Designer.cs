@@ -190,12 +190,12 @@
             trackBarSpeed.Cursor = Cursors.SizeWE;
             trackBarSpeed.Dock = DockStyle.Bottom;
             trackBarSpeed.Location = new Point(0, 684);
-            trackBarSpeed.Maximum = 5000;
-            trackBarSpeed.Minimum = 100;
+            trackBarSpeed.Maximum = 5;
+            trackBarSpeed.Minimum = 1;
             trackBarSpeed.Name = "trackBarSpeed";
             trackBarSpeed.Size = new Size(1494, 45);
             trackBarSpeed.TabIndex = 21;
-            trackBarSpeed.Value = 1000;
+            trackBarSpeed.Value = 1;
             trackBarSpeed.Scroll += trackBarSpeed_Scroll;
             // 
             // label7
