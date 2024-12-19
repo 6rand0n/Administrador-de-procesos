@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "I:\\VSC Proyectos\\Administrador-de-procesos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|i:\\vsc proyectos\\administrador-de-procesos\\clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|I:\\VSC Proyectos\\Administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|i:\\vsc proyectos\\administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|I:\\VSC Proyectos\\Administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|i:\\vsc proyectos\\administrador-de-procesos\\clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAqwGsAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T19:48:33.25Z",
               "IsPinned": true,
@@ -52,20 +52,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Clases.cs",
               "DocumentMoniker": "I:\\VSC Proyectos\\Administrador-de-procesos\\Clases.cs",
               "RelativeDocumentMoniker": "Clases.cs",
               "ToolTip": "I:\\VSC Proyectos\\Administrador-de-procesos\\Clases.cs",
               "RelativeToolTip": "Clases.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAADwv4MAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-19T08:08:32.794Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",

@@ -60,24 +60,20 @@ public class AsignadorMemoria
     // Método para dividir un bloque en dos bloques "buddy"
     public void DividirBloque(BloqueMemoria bloque, int tamano)
     {
-        // Si el bloque es mayor que el tamaño solicitado, lo dividimos
-        while (bloque.Tamaño / 2 >= tamano)
+        while (bloque.Tamaño / 2 >= tamano && bloque.Tamaño > 1)
         {
             int mitad = bloque.Tamaño / 2;
 
-            // Creamos el buddy y lo marcamos como libre
             BloqueMemoria bloqueNuevo = new BloqueMemoria(bloque.Inicio + mitad, mitad);
-            bloque.Buddy = bloqueNuevo; // Asignamos el buddy
+            bloqueNuevo.Buddy = bloque; // Hacemos que ambos se refieran como buddies
 
-            bloque.Tamaño = mitad; // Reducimos el tamaño del bloque original
+            bloque.Buddy = bloqueNuevo;
 
-            // El nuevo bloque (buddy) se marca como libre
-            bloqueNuevo.EstaLibre = true;
-            bloqueNuevo.ProcesoID = null;
+            bloque.Tamaño = mitad;
 
-            bloquesMemoria.Add(bloqueNuevo); // Agregamos el buddy a la lista
+            bloquesMemoria.Add(bloqueNuevo);
         }
-    }
+}
 
     // Método para asignar memoria (usando Buddy System)
     public bool AsignarMemoria(int id, int tamano, int ejecucion)
@@ -124,15 +120,16 @@ public class AsignadorMemoria
     // Combina bloques de memoria si ambos están libres
     public void CombinarBloques(BloqueMemoria bloque)
     {
-        if (bloque.Buddy != null && bloque.Buddy.EstaLibre && bloque.Tamaño == bloque.Buddy.Tamaño)
+        while (bloque.Buddy != null && bloque.Buddy.EstaLibre && bloque.Tamaño == bloque.Buddy.Tamaño)
         {
-            // Combinamos los bloques de memoria
-            bloque.Tamaño *= 2; // El tamaño del bloque original se duplica
-            bloque.Buddy.EstaLibre = false; // El buddy ya no está libre
-            bloquesMemoria.Remove(bloque.Buddy); // Eliminamos el buddy de la lista
-            bloque.Buddy = null; // Eliminamos la referencia al buddy
+            // Asegúrate de que los buddies se combinen una sola vez
+            bloquesMemoria.Remove(bloque.Buddy);
+
+            bloque.Tamaño *= 2;
+            bloque.Buddy = null; // Elimina la relación del buddy
         }
     }
+
 
     // Método para obtener todos los bloques de memoria
     public List<BloqueMemoria> ObtenerBloquesMemoria()

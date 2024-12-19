@@ -52,7 +52,7 @@ namespace SOProyecto
         private string ObtenerEstadoMemoria()
         {
             StringBuilder sb = new StringBuilder();
-
+            int j = 0;
             foreach (var bloque in asignador.ObtenerBloquesMemoria())
             {
                 if (bloque.EstaLibre)
@@ -69,6 +69,13 @@ namespace SOProyecto
                         sb.Append($"[{proceso.ID},{bloque.Tamaño},{proceso.TiempoEjecucion}]");
                     }
                 }
+
+                j++;
+                if (j > 10)
+                {
+                    sb.Append("...");
+                    break;
+                }
             }
 
             // Regresar la cadena con todos los bloques en una sola línea
@@ -81,7 +88,7 @@ namespace SOProyecto
         private void AgregarRegistroLog(string nuevoRegistro)
         {
             // Si hay más de 8 elementos en el log, eliminamos el más antiguo (primer elemento)
-            if (registrosLog.Count >= 8)
+            if (registrosLog.Count >= 10)
             {
                 registrosLog.RemoveAt(0); // Elimina el primer elemento
             }

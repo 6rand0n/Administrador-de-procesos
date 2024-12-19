@@ -79,7 +79,7 @@
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(0, 13);
+            label1.Location = new Point(35, 80);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(443, 28);
