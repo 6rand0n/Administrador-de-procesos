@@ -21,13 +21,10 @@ namespace SOProyecto
         static public int memoria = 4096;
         private List<Proceso> procesos = new List<Proceso>();
         private System.Timers.Timer ejecucionTimer;
-        private int tiempoDeVida = 10;
-        private int procesoIndex = 0;
-        private int tiempoTerminado = 5;
         static public int tiempoCambioEstado = 1;
         int contador = 0, procesamiento = 1000, maxProce = 5000, memoriaMax = 512;
-        int intervalo = 1;
         private AsignadorMemoria asignador;
+        int i = 0;
 
 
         private decimal totalTimepoEnAtencion = 0; //suma total para el tiempo de ejecucion
@@ -36,7 +33,7 @@ namespace SOProyecto
         public Form1()
         {
             InitializeComponent();
-            Log.Text = "[0, 4096, 0]";
+            AgregarRegistroLog("[0, 4096, 0]");
             asignador = new AsignadorMemoria(4096);
             lbMemoria.Text = Convert.ToString(memoria);
 
@@ -50,153 +47,186 @@ namespace SOProyecto
             btnClearProcesses.Enabled = false;
 
             trackBarSpeed.Scroll += trackBarSpeed_Scroll;
-            lblSpeed.Text = "Velocidad: x" + trackBarSpeed.Value.ToString();
+            lblSpeed.Text = "x " + trackBarSpeed.Value.ToString();
         }
-
-
-
-
         private string ObtenerEstadoMemoria()
         {
             StringBuilder sb = new StringBuilder();
+
             foreach (var bloque in asignador.ObtenerBloquesMemoria())
             {
-                string estado = bloque.EstaLibre ? "[0," : $"[{bloque.ProcesoID},";
-                sb.Append($"{estado}{bloque.Tamaño},{bloque.EstaLibre}]");
+                if (bloque.EstaLibre)
+                {
+                    // Si el bloque está libre, representarlo como [0, tamaño, 0]
+                    sb.Append($"[0,{bloque.Tamaño},0]");
+                }
+                else
+                {
+                    // Si el bloque está ocupado, buscar el proceso que lo ocupa y obtener su ID y tiempo de ejecución
+                    var proceso = procesos.FirstOrDefault(p => p.ID == bloque.ProcesoID);
+                    if (proceso != null)
+                    {
+                        sb.Append($"[{proceso.ID},{bloque.Tamaño},{proceso.TiempoEjecucion}]");
+                    }
+                }
             }
+
+            // Regresar la cadena con todos los bloques en una sola línea
             return sb.ToString();
+        }
+        // Una lista para mantener los últimos 8 registros del log
+        private List<string> registrosLog = new List<string>();
+
+        // Método para agregar un nuevo registro al log
+        private void AgregarRegistroLog(string nuevoRegistro)
+        {
+            // Si hay más de 8 elementos en el log, eliminamos el más antiguo (primer elemento)
+            if (registrosLog.Count >= 8)
+            {
+                registrosLog.RemoveAt(0); // Elimina el primer elemento
+            }
+
+            // Agregar el nuevo registro al final de la lista
+            registrosLog.Add(nuevoRegistro);
+
+            // Actualizar el control de texto del log para mostrar solo los últimos 8 registros
+            ActualizarLog();
+        }
+
+        // Método para actualizar el control de texto del log
+        private void ActualizarLog()
+        {
+            Log.Text = string.Join("\n", registrosLog);
         }
 
 
 
-        private void OnTimedEvent(System.Object source, ElapsedEventArgs e)
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             this.Invoke((MethodInvoker)delegate
             {
-                if (procesos.Count == 0 || procesos.Count <= 3)
+                if (procesos.Count == 0 || procesos.Count <= 4)
                 {
-
-                    // Generación de procesos aleatorios
-                    Proceso nuevoProceso = GeneracionDeProcesos();
-                    AgregarProceso(nuevoProceso);
-                    //MostrarProceso();
-
-                    // Asignar memoria al nuevo proceso
-                    if (asignador.AsignarMemoria(nuevoProceso.ID, nuevoProceso.Memoria, nuevoProceso.TiempoEjecucion))
+                    // Generación de procesos aleatorios (con control de frecuencia)
+                    if (procesos.Count < 8)  // No generar más de 8 procesos por vez
                     {
-                        Log.Text += ObtenerEstadoMemoria();
-                        memoria -= nuevoProceso.Memoria;
-                        lbMemoria.Text = memoria.ToString();
-                    }
+                        Proceso nuevoProceso = GeneracionDeProcesos();
 
+                        // Asignar memoria al nuevo proceso
+                        if (asignador.AsignarMemoria(nuevoProceso.ID, nuevoProceso.Memoria, nuevoProceso.TiempoEjecucion) && nuevoProceso.Memoria <= memoria)
+                        {
+                            AgregarProceso(nuevoProceso);
+                            AgregarRegistroLog("-> " + ObtenerEstadoMemoria());
+
+                            memoria -= nuevoProceso.Memoria;
+                            lbMemoria.Text = memoria.ToString();
+                        }
+                    }
                 }
 
-                    // Ejecutar un solo proceso a la vez
-                    if (procesos.Count > 0)
-                    {
-                        // Seleccionar el primer proceso de la lista para ejecutarlo (Round Robin)
-                        var proceso = procesos[0];
-                    // ActualizarSwap(proceso);
+                if (procesos.Count > 0)
+                {
+                    // Procesar el siguiente proceso de la lista (utilizando un enfoque más eficiente)
+                    Proceso proceso = procesos[i];
+                    bool procesoActualizado = false;
 
+                    // Si el proceso está en estado "Ready", cambiar a "Running"
                     if (proceso.Estado == "Ready")
                     {
-                        proceso.Estado = "Running"; // Cambiar estado a Running
-                        MostrarProceso(); // Actualizar la interfaz gráfica
+                        proceso.Estado = "Running";
+                        foreach (var proceso2 in procesos)
+                        {
+                            if (proceso2.Estado == "Running" && proceso2.ID != proceso.ID)
+                            {
+                                proceso2.Estado = "Ready";
+                            }
+                        }
+                        ActualizarSwap();
+                        MostrarProceso();
+                        procesoActualizado = true;
                     }
 
-                    // Cambiar estado del proceso de forma aleatoria
-                    /* Random random = new Random();
-                     int estadoAleatorio = random.Next(0, 3); // 0 = Ready, 1 = Running, 2 = Blocked
-
-                     if (estadoAleatorio == 0)
-                         proceso.Estado = "Ready";
-                     else if (estadoAleatorio == 1)
-                         proceso.Estado = "Running";
-                     else
-                         proceso.Estado = "Blocked";
-
-                     MostrarProceso();
-                    */
-                    Random random = new Random();
+                    // Simulando la ejecución del proceso
                     if (proceso.Estado == "Running" && proceso.TiempoRestante > 0)
-                        {
-                            Log.Text += $"\nAtendiendo proceso [{proceso.ID},{proceso.Memoria},{proceso.TiempoRestante}]\n";
-
-
-                        if (random.Next(0,10) < 2)
+                    {
+                        // Simular posible bloqueo del proceso con menos probabilidades
+                        if (new Random().Next(0, 10) < 1) // Cambiar la probabilidad de bloqueo
                         {
                             proceso.Estado = "Blocked";
                         }
 
-
-                            if (!proceso.TiempoInicio.HasValue)
-                            {
-                                proceso.TiempoInicio = DateTime.Now;
-                            }
-
-                            proceso.TiempoEjecucion -= trackBarSpeed.Value * proceso.Procesamiento;
-                            proceso.TiempoRestante = proceso.TiempoEjecucion / trackBarSpeed.Value;
-                            MostrarProceso();
+                        if (!proceso.TiempoInicio.HasValue)
+                        {
+                            proceso.TiempoInicio = DateTime.Now;
                         }
 
-                        if (proceso.TiempoEjecucion <= 0)
-                        {
-                            proceso.Estado = "Terminado";
-                            
-                             FinalizarProceso(proceso);
-                            
+                        // Ejecutar el proceso
+                        proceso.TiempoEjecucion -= trackBarSpeed.Value * proceso.Procesamiento;
+                        proceso.TiempoRestante = proceso.TiempoEjecucion / trackBarSpeed.Value;
+                        ActualizarSwap();
+                        MostrarProceso();
+                        procesoActualizado = true;
+                    }
+
+                    // Verificar si el proceso ha terminado
+                    if (proceso.TiempoEjecucion <= 0)
+                    {
+                        proceso.Estado = "Terminado";
+                        FinalizarProceso(proceso);
+                        if (i >= procesos.Count) i = 0; // Ajustar el índice si es necesario
                     }
                     else if (proceso.Estado == "Blocked")
                     {
                         // Mover el proceso bloqueado al final de la lista
-                        procesos.RemoveAt(0);
+                        procesos.RemoveAt(i);
                         procesos.Add(proceso);
+                        i = 0; // Ajustar el índice si es necesario
                     }
                     else if (proceso.Estado != "Running")
                     {
-                        // Mover a Ready si no está en ejecución
+                        // Mover a "Ready" si no está en ejecución
                         proceso.Estado = "Ready";
-                        procesos.RemoveAt(0);
+                        procesos.RemoveAt(i);
                         procesos.Add(proceso);
+                        if (i >= procesos.Count) i = 0; // Ajustar el índice si es necesario
                     }
-                    
+                    else
+                    {
+                        // Avanzar al siguiente proceso en la lista
+                        i = (i + 1) % procesos.Count;
                     }
 
-                foreach (var proceso in procesos)
-                {
-                    if (proceso.Estado == "Blocked")
+                    // Actualizar los estados de los procesos bloqueados
+                    foreach (var proceso2 in procesos)
                     {
-                        
-                        Random random = new Random();
-                        if (random.Next(0, 10) > 7) 
+                        if (proceso2.Estado == "Blocked")
                         {
-                            proceso.Estado = "Ready"; // Cambiar a Ready
-                            Log.Text += $"\nProceso [{proceso.ID}] ha sido desbloqueado.\n";
+                            if (new Random().Next(0, 10) > 7) // Mejorar la probabilidad de desbloqueo
+                            {
+                                proceso2.Estado = "Ready";
+                                ActualizarSwap();
+                            }
                         }
                     }
+
+                    // Mostrar estadísticas y log
+                    if (procesoActualizado)
+                    {
+                        MostrarEstadistica();
+                        MostrarProceso();
+                        AgregarRegistroLog("- " + ObtenerEstadoMemoria());
+                    }
                 }
-
-                /* if (procesos.Count == 0)
-                 {
-                     ejecucionTimer.Stop();
-                     btnResumeSimulation.Enabled = false;
-                     btnClearProcesses.Enabled = false;
-                 }*/
-
-                MostrarEstadistica();
-                    MostrarProceso();
-
-                    Log.Text += "\nImpresión final de ciclo:\n";
-                    Log.Text += ObtenerEstadoMemoria() + "\n";
-                
             });
         }
-    
+
+
         private void FinalizarProceso(Proceso proceso)
         {
             asignador.LiberarMemoria(proceso.ID); // Liberar memoria
             memoria += proceso.Memoria;
             lbMemoria.Text = memoria.ToString();
+
 
             if (proceso.TiempoInicio.HasValue)
             {
@@ -211,32 +241,24 @@ namespace SOProyecto
         }
 
 
-        private void ActualizarSwap(Proceso proceso)
+        private void ActualizarSwap()
         {
-            Random random = new Random();
-
-            if (proceso.Estado == "Running")
+            foreach (var proceso in procesos)
             {
-                if (random.Next(0, 10) < 3) // 30% de probabilidad que ocurra esto
-                {
-                    proceso.Swap = "En swap";
-                }
-                else
+                Random random = new Random();
+
+                if (proceso.Estado == "Running")
                 {
                     proceso.Swap = "En memoria";
                 }
-            }
-            else if (proceso.Estado == "Ready")
-            {
-                proceso.Swap = "En espera";
-            }
-            else if (proceso.Estado == "Blocked")
-            {
-                proceso.Swap = "En espera";
-            }
-            else if (proceso.Estado == "Terminado")
-            {
-                proceso.Swap = "Finalizado";
+                else if (proceso.Estado == "Ready")
+                {
+                    proceso.Swap = "En swap";
+                }
+                else if (proceso.Estado == "Blocked")
+                {
+                    proceso.Swap = "En swap Blocked";
+                }
             }
         }
 
@@ -249,11 +271,6 @@ namespace SOProyecto
             }
 
             dataGridView1.Rows.Clear();
-           /* if (procesos.Count == 0)
-            {
-                MessageBox.Show("No hay procesos para mostrar.");
-                return;
-            }*/
 
             foreach (var proceso in procesos)
             {
@@ -303,7 +320,7 @@ namespace SOProyecto
 
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
         {
-            lblSpeed.Text = "Velocidad: x" + trackBarSpeed.Value.ToString();
+            lblSpeed.Text = "x " + trackBarSpeed.Value.ToString();
             ejecucionTimer.Interval = 1000 / trackBarSpeed.Value;
         }
 
@@ -315,7 +332,6 @@ namespace SOProyecto
             {
                 ejecucionTimer.Stop();
                 btnResumeSimulation.Enabled = true;
-                btnClearProcesses.Enabled = true;
                 MessageBox.Show("Simulacion detenida.");
             }
             else
@@ -369,7 +385,7 @@ namespace SOProyecto
 
             int cpu = random.Next(1, 15); //1 a 15% del procesador
 
-            int tiempoEjecucion = random.Next(1000, maxProce) / trackBarSpeed.Value; // Ajustar según la velocidad
+            int tiempoEjecucion = random.Next(1000, maxProce);
 
             Proceso nuevoProceso = new Proceso(id, nombre, memoria, cpu, tiempoEjecucion, procesamiento);
 
@@ -378,12 +394,11 @@ namespace SOProyecto
 
         private void MostrarEstadistica()
         {
-
-
-
             //esta comparacion es para evitar que ocurra un error de dividir 0/0
             decimal tiempoMedia = totalDeProcesosAtendidos > 0 ? totalTimepoEnAtencion / totalDeProcesosAtendidos : 0; //sacamos la media del tiempo
-            lblTiempoMedi.Text = tiempoMedia.ToString("F2");
+            if (lblSpeed.Text == "x 5")
+                tiempoMedia *= 5;
+            lblTiempoMedi.Text = (tiempoMedia*1000).ToString("F2");
             lblTotalProcesosAtendidos.Text = totalDeProcesosAtendidos.ToString();
 
         }
@@ -459,10 +474,10 @@ namespace SOProyecto
             txtProcesamiento_TextChanged();
         }
 
-        
+        private void lblTiempoMedi_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 
 

@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\",
+  "WorkspaceRootPath": "I:\\VSC Proyectos\\Administrador-de-procesos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\kuted\\source\\proyectoso\\proyecto4\\clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|i:\\vsc proyectos\\administrador-de-procesos\\clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\kuted\\source\\proyectoso\\proyecto4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|i:\\vsc proyectos\\administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|I:\\VSC Proyectos\\Administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -22,39 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Clases.cs",
-              "DocumentMoniker": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\Clases.cs",
-              "RelativeDocumentMoniker": "Clases.cs",
-              "ToolTip": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\Clases.cs",
-              "RelativeToolTip": "Clases.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAUwJwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T20:27:16.057Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\Form1.cs",
+              "DocumentMoniker": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\Form1.cs",
+              "ToolTip": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAAAEkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAqwGsAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T19:48:33.25Z",
               "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Bookmark",
@@ -65,15 +47,33 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Clases.cs",
+              "DocumentMoniker": "I:\\VSC Proyectos\\Administrador-de-procesos\\Clases.cs",
+              "RelativeDocumentMoniker": "Clases.cs",
+              "ToolTip": "I:\\VSC Proyectos\\Administrador-de-procesos\\Clases.cs",
+              "RelativeToolTip": "Clases.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAswIMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T08:08:32.794Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\Form1.cs",
+              "DocumentMoniker": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T16:51:04.843Z"
+              "WhenOpened": "2024-11-25T16:51:04.843Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
