@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "I:\\VSC Proyectos\\Administrador-de-procesos\\",
+  "WorkspaceRootPath": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|I:\\VSC Proyectos\\Administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\user\\documents\\sistemas operativos\\proyecto\\administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|i:\\vsc proyectos\\administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\user\\documents\\sistemas operativos\\proyecto\\administrador-de-procesos\\clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|i:\\vsc proyectos\\administrador-de-procesos\\clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:clases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|c:\\users\\user\\documents\\sistemas operativos\\proyecto\\administrador-de-procesos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56EF76DD-2235-40AD-9773-7B98E67339BE}|SOProyecto.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,13 +26,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
-              "DocumentMoniker": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAN4BAAAAAAAAAAAAAPIBAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T19:48:33.25Z",
               "IsPinned": true,
@@ -52,11 +52,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Clases.cs",
-              "DocumentMoniker": "I:\\VSC Proyectos\\Administrador-de-procesos\\Clases.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Clases.cs",
               "RelativeDocumentMoniker": "Clases.cs",
-              "ToolTip": "I:\\VSC Proyectos\\Administrador-de-procesos\\Clases.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Clases.cs",
               "RelativeToolTip": "Clases.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAADwv4MAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -67,9 +67,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "I:\\VSC Proyectos\\Administrador-de-procesos\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T16:51:04.843Z",

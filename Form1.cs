@@ -405,7 +405,7 @@ namespace SOProyecto
             decimal tiempoMedia = totalDeProcesosAtendidos > 0 ? totalTimepoEnAtencion / totalDeProcesosAtendidos : 0; //sacamos la media del tiempo
             if (lblSpeed.Text == "x 5")
                 tiempoMedia *= 5;
-            lblTiempoMedi.Text = (tiempoMedia*1000).ToString("F2");
+            lblTiempoMedi.Text = (tiempoMedia * 1000).ToString("F2");
             lblTotalProcesosAtendidos.Text = totalDeProcesosAtendidos.ToString();
 
         }
@@ -484,6 +484,19 @@ namespace SOProyecto
         private void lblTiempoMedi_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ejecucionTimer.Enabled)
+            {
+                ejecucionTimer.Stop();
+            }
+
+            MessageBox.Show("Saliendo de la simulación");
+
+            this.Close();
+            Application.Exit();
         }
     }
 
