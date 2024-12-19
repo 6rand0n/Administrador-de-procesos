@@ -8,19 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {}
+    "C:\\Users\\Kuted\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\SOProyecto.csproj",
+      "projectUniqueName": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\SOProyecto.csproj",
       "projectName": "SOProyecto",
-      "projectPath": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\SOProyecto.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\obj\\",
+      "projectPath": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\SOProyecto.csproj",
+      "packagesPath": "C:\\Users\\Kuted\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kuted\\source\\proyectoSO\\proyecto4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kuted\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

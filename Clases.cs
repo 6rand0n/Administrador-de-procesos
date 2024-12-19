@@ -17,19 +17,19 @@ public class BloqueMemoria
     public int Inicio { get; set; }
     public int Tamaño { get; set; }
     public bool EstaLibre { get; set; }
-
     public int? ProcesoID { get; set; }
+    public BloqueMemoria Buddy { get; set; } // Nuevo campo para el buddy del bloque
+
     public BloqueMemoria(int inicio, int tamaño)
     {
         Inicio = inicio;
         Tamaño = tamaño;
         EstaLibre = true;
         ProcesoID = null;
+        Buddy = null;  // Inicializamos el buddy como null
     }
-
-
-
 }
+
 public class AsignadorMemoria
 {
     private List<BloqueMemoria> bloquesMemoria;
@@ -42,93 +42,120 @@ public class AsignadorMemoria
         };
     }
 
+    // Método para encontrar el bloque adecuado para asignar memoria
+    public BloqueMemoria EncontrarBloqueAdecuado(int tamano)
+    {
+        foreach (var bloque in bloquesMemoria)
+        {
+            if (bloque.EstaLibre && bloque.Tamaño >= tamano)
+            {
+                return bloque; // Retorna el primer bloque libre que sea adecuado
+            }
+        }
+        return null; // Si no se encontró un bloque adecuado
+    }
+
+    // Método para dividir un bloque en dos bloques (buddy)
+    public void DividirBloque(BloqueMemoria bloque, int tamano)
+    {
+        // Si el tamaño del bloque es mayor que el tamaño solicitado, lo dividimos
+        if (bloque.Tamaño > tamano)
+        {
+            int mitad = bloque.Tamaño / 2;
+            BloqueMemoria bloqueNuevo = new BloqueMemoria(bloque.Inicio + mitad, mitad);
+
+            bloque.Tamaño = mitad; // El bloque original ahora tiene el tamaño reducido
+            bloque.Buddy = bloqueNuevo; // Asignamos el buddy
+
+            // El bloque nuevo se marca como libre
+            bloqueNuevo.EstaLibre = true;
+            bloqueNuevo.ProcesoID = null;
+        }
+    }
+
+
+    // Método para asignar memoria (usando Buddy System)
+    public bool AsignarMemoria(int id, int tamano, int ejecucion)
+    {
+        // Llamamos a EncontrarBloqueAdecuado para obtener el primer bloque adecuado
+        BloqueMemoria bloque = EncontrarBloqueAdecuado(tamano);
+
+        // Si no se encuentra un bloque adecuado, devolvemos false
+        if (bloque == null)
+        {
+            Console.WriteLine($"No hay suficiente memoria para asignar {tamano} unidades.");
+            return false;
+        }
+
+        // Si el bloque es mayor que el tamaño necesario, lo dividimos
+        while (bloque.Tamaño > tamano)
+        {
+            // Verifica que el buddy esté correctamente asignado
+            if (bloque.Buddy == null)
+            {
+                // Creación y asignación de buddy si es necesario
+                bloque.Buddy = new BloqueMemoria(bloque.Inicio + bloque.Tamaño / 2, bloque.Tamaño / 2);
+            }
+
+            DividirBloque(bloque, tamano);
+            bloque = bloque.Buddy; // Asignamos el buddy para la división recursiva
+        }
+
+        // Asignamos memoria al bloque
+        bloque.EstaLibre = false;
+        bloque.ProcesoID = id;
+
+        return true;
+    }
+
+
+
+    // Liberar memoria y combinar con el buddy si está libre
+    public void LiberarMemoria(int id)
+    {
+        foreach (var bloque in bloquesMemoria)
+        {
+            if (bloque.ProcesoID == id)
+            {
+                bloque.EstaLibre = true;
+                bloque.ProcesoID = null;
+
+                // Intentamos combinar el bloque con su buddy
+                CombinarBloques(bloque);
+                break;
+            }
+        }
+    }
+
+    // Combina bloques de memoria si ambos están libres
+    public void CombinarBloques(BloqueMemoria bloque)
+    {
+        if (bloque.Buddy != null && bloque.Buddy.EstaLibre)
+        {
+            // Actualizamos el tamaño y eliminamos el buddy
+            bloque.Tamaño *= 2;
+            bloquesMemoria.Remove(bloque.Buddy);
+            bloque.Buddy = null;
+        }
+    }
+
     public List<BloqueMemoria> ObtenerBloquesMemoria()
     {
         return bloquesMemoria;
     }
-
-    public bool AsignarMemoria(int id, int tamano, int ejecucion)
-    {
-        if (tamano > bloquesMemoria.Sum(b => b.EstaLibre ? b.Tamaño : 0))
-        {
-            return false;
-        }
-
-
-        for (int i = 0; i < bloquesMemoria.Count; i++)
-        {
-            if (bloquesMemoria[i].EstaLibre && bloquesMemoria[i].Tamaño >= tamano)
-            {
-                var nuevoBloque = new BloqueMemoria(bloquesMemoria[i].Inicio, tamano)
-                {
-                    EstaLibre = false,
-                    ProcesoID = id
-                };
-
-                //ajustar bloque libre
-                bloquesMemoria[i].Inicio += tamano;
-                bloquesMemoria[i].Tamaño -= tamano;
-
-                if (bloquesMemoria[i].Tamaño == 0)
-                {
-                    bloquesMemoria.RemoveAt(i);
-                }
-                //insterar un nuevo bloque y actualizarlo
-                bloquesMemoria.Insert(i, nuevoBloque);
-
-                return true;
-
-            }
-
-        }
-        return false;
-    }
-
-    public void liberarMemoria(int id)
-    {
-        for (int i = 0; i < bloquesMemoria.Count; i++)
-        {
-            if (!bloquesMemoria[i].EstaLibre && bloquesMemoria[i].ProcesoID == id)
-            {
-                bloquesMemoria[i].EstaLibre = true;
-                bloquesMemoria[i].ProcesoID = null;
-
-                CombinarBloquesLibre();
-                break;
-            }
-        }
-
-
-
-    }
-
-    public void CombinarBloquesLibre()
-    {
-        for (int i = 0; i < bloquesMemoria.Count - 1; i++)
-        {
-            if (bloquesMemoria[i].EstaLibre && bloquesMemoria[i + 1].EstaLibre)
-            {
-                bloquesMemoria[i].Tamaño += bloquesMemoria[i + 1].Tamaño;
-                bloquesMemoria.RemoveAt(i + 1);
-                i--;
-            }
-        }
-        bloquesMemoria.RemoveAll(b => b.Tamaño == 0);
-    }
-
     public void ImprimirEstadoMemoria()
     {
         foreach (var bloque in bloquesMemoria)
         {
             string estado = bloque.EstaLibre ? "[0," : "[1,";
             Console.WriteLine($"{estado}{bloque.Tamaño},{bloque.Inicio}]");
+            if (bloque.Buddy != null)
+            {
+                Console.WriteLine($"  Buddy: {bloque.Buddy.Inicio}, {bloque.Buddy.Tamaño}");
+            }
         }
     }
-
 }
-
-
-
 
 
 public class Proceso

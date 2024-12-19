@@ -193,22 +193,22 @@ namespace SOProyecto
         }
     
         private void FinalizarProceso(Proceso proceso)
-{
-    asignador.liberarMemoria(proceso.ID); // Liberar memoria
-    memoria += proceso.Memoria;
-    lbMemoria.Text = memoria.ToString();
+        {
+            asignador.LiberarMemoria(proceso.ID); // Liberar memoria
+            memoria += proceso.Memoria;
+            lbMemoria.Text = memoria.ToString();
 
-    if (proceso.TiempoInicio.HasValue)
-    {
-        TimeSpan tiempoDeAtencion = DateTime.Now - proceso.TiempoInicio.Value;
-        totalTimepoEnAtencion += (decimal)tiempoDeAtencion.TotalSeconds;
-        totalDeProcesosAtendidos++;
-    }
+            if (proceso.TiempoInicio.HasValue)
+            {
+                TimeSpan tiempoDeAtencion = DateTime.Now - proceso.TiempoInicio.Value;
+                totalTimepoEnAtencion += (decimal)tiempoDeAtencion.TotalSeconds;
+                totalDeProcesosAtendidos++;
+            }
 
-    procesos.Remove(proceso); // Eliminar el proceso de la lista
-    ActualizarContador();
-    MostrarEstadistica();
-}
+            procesos.Remove(proceso); // Eliminar el proceso de la lista
+            ActualizarContador();
+            MostrarEstadistica();
+        }
 
 
         private void ActualizarSwap(Proceso proceso)
