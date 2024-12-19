@@ -23,7 +23,6 @@ C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\b
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.dll
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\bin\Debug\net8.0-windows\SOProyecto.pdb
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.Form1.resources
-C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.Procesos.resources
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.Properties.Resources.resources
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.csproj.GenerateResource.cache
 C:\Users\USER\Documents\sistemas operativos\Proyecto\Administrador-de-procesos\obj\Debug\net8.0-windows\SOProyecto.GeneratedMSBuildEditorConfig.editorconfig

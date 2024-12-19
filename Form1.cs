@@ -55,7 +55,7 @@ namespace SOProyecto
 
 
 
-      
+
         private string ObtenerEstadoMemoria()
         {
             StringBuilder sb = new StringBuilder();
@@ -73,89 +73,142 @@ namespace SOProyecto
         {
             this.Invoke((MethodInvoker)delegate
             {
-                // Generación de procesos aleatorios
-                Proceso nuevoProceso = GeneracionDeProcesos();
-                AgregarProceso(nuevoProceso);
-
-                // Asignar memoria al nuevo proceso
-                if (asignador.AsignarMemoria(nuevoProceso.ID, nuevoProceso.Memoria, nuevoProceso.TiempoEjecucion))
+                if (procesos.Count == 0 || procesos.Count <= 3)
                 {
-                    Log.Text += ObtenerEstadoMemoria();
-                    memoria -= nuevoProceso.Memoria;
-                    lbMemoria.Text = memoria.ToString();
+
+                    // Generación de procesos aleatorios
+                    Proceso nuevoProceso = GeneracionDeProcesos();
+                    AgregarProceso(nuevoProceso);
+                    //MostrarProceso();
+
+                    // Asignar memoria al nuevo proceso
+                    if (asignador.AsignarMemoria(nuevoProceso.ID, nuevoProceso.Memoria, nuevoProceso.TiempoEjecucion))
+                    {
+                        Log.Text += ObtenerEstadoMemoria();
+                        memoria -= nuevoProceso.Memoria;
+                        lbMemoria.Text = memoria.ToString();
+                    }
+
                 }
 
-                // Ejecutar un solo proceso a la vez
-                if (procesos.Count > 0)
-                {
-                    // Seleccionar el primer proceso de la lista para ejecutarlo (Round Robin)
-                    var proceso = procesos[0];
-                    ActualizarSwap(proceso);
+                    // Ejecutar un solo proceso a la vez
+                    if (procesos.Count > 0)
+                    {
+                        // Seleccionar el primer proceso de la lista para ejecutarlo (Round Robin)
+                        var proceso = procesos[0];
+                    // ActualizarSwap(proceso);
+
+                    if (proceso.Estado == "Ready")
+                    {
+                        proceso.Estado = "Running"; // Cambiar estado a Running
+                        MostrarProceso(); // Actualizar la interfaz gráfica
+                    }
 
                     // Cambiar estado del proceso de forma aleatoria
+                    /* Random random = new Random();
+                     int estadoAleatorio = random.Next(0, 3); // 0 = Ready, 1 = Running, 2 = Blocked
+
+                     if (estadoAleatorio == 0)
+                         proceso.Estado = "Ready";
+                     else if (estadoAleatorio == 1)
+                         proceso.Estado = "Running";
+                     else
+                         proceso.Estado = "Blocked";
+
+                     MostrarProceso();
+                    */
                     Random random = new Random();
-                    int estadoAleatorio = random.Next(0, 3); // 0 = Ready, 1 = Running, 2 = Blocked
-
-                    if (estadoAleatorio == 0)
-                        proceso.Estado = "Ready";
-                    else if (estadoAleatorio == 1)
-                        proceso.Estado = "Running";
-                    else
-                        proceso.Estado = "Blocked";
-
-                    MostrarProceso();
-
                     if (proceso.Estado == "Running" && proceso.TiempoRestante > 0)
-                    {
-                        Log.Text += $"\nAtendiendo proceso [{proceso.ID},{proceso.Memoria},{proceso.TiempoRestante}]\n";
-
-                        if (!proceso.TiempoInicio.HasValue)
                         {
-                            proceso.TiempoInicio = DateTime.Now;
+                            Log.Text += $"\nAtendiendo proceso [{proceso.ID},{proceso.Memoria},{proceso.TiempoRestante}]\n";
+
+
+                        if (random.Next(0,10) < 2)
+                        {
+                            proceso.Estado = "Blocked";
                         }
 
-                        proceso.TiempoEjecucion -= trackBarSpeed.Value * proceso.Procesamiento;
-                        proceso.TiempoRestante = proceso.TiempoEjecucion / trackBarSpeed.Value;
-                        MostrarProceso();
-                    }
 
-                    if (proceso.TiempoEjecucion <= 0 && proceso.Estado != "Terminado")
-                    {
-                        proceso.Estado = "Terminado";
-                        proceso.TiempoTerminado = tiempoTerminado;
+                            if (!proceso.TiempoInicio.HasValue)
+                            {
+                                proceso.TiempoInicio = DateTime.Now;
+                            }
 
-                        asignador.liberarMemoria(proceso.ID);
-                        memoria += proceso.Memoria;
-                        lbMemoria.Text = memoria.ToString();
-
-                        if (proceso.TiempoInicio.HasValue)
-                        {
-                            TimeSpan tiempoDeAtencion = DateTime.Now - proceso.TiempoInicio.Value;
-                            totalTimepoEnAtencion += (decimal)tiempoDeAtencion.TotalSeconds;
-                            totalDeProcesosAtendidos++;
+                            proceso.TiempoEjecucion -= trackBarSpeed.Value * proceso.Procesamiento;
+                            proceso.TiempoRestante = proceso.TiempoEjecucion / trackBarSpeed.Value;
+                            MostrarProceso();
                         }
 
-                        procesos.RemoveAt(0); // Eliminar el proceso ejecutado
-                        ActualizarContador();
+                        if (proceso.TiempoEjecucion <= 0)
+                        {
+                            proceso.Estado = "Terminado";
+                            
+                             FinalizarProceso(proceso);
+                            
                     }
-                }
+                    else if (proceso.Estado == "Blocked")
+                    {
+                        // Mover el proceso bloqueado al final de la lista
+                        procesos.RemoveAt(0);
+                        procesos.Add(proceso);
+                    }
+                    else if (proceso.Estado != "Running")
+                    {
+                        // Mover a Ready si no está en ejecución
+                        proceso.Estado = "Ready";
+                        procesos.RemoveAt(0);
+                        procesos.Add(proceso);
+                    }
+                    
+                    }
 
-                if (procesos.Count == 0)
+                foreach (var proceso in procesos)
                 {
-                    ejecucionTimer.Stop();
-                    btnResumeSimulation.Enabled = false;
-                    btnClearProcesses.Enabled = false;
+                    if (proceso.Estado == "Blocked")
+                    {
+                        
+                        Random random = new Random();
+                        if (random.Next(0, 10) > 7) 
+                        {
+                            proceso.Estado = "Ready"; // Cambiar a Ready
+                            Log.Text += $"\nProceso [{proceso.ID}] ha sido desbloqueado.\n";
+                        }
+                    }
                 }
+
+                /* if (procesos.Count == 0)
+                 {
+                     ejecucionTimer.Stop();
+                     btnResumeSimulation.Enabled = false;
+                     btnClearProcesses.Enabled = false;
+                 }*/
 
                 MostrarEstadistica();
-                MostrarProceso();
+                    MostrarProceso();
 
-                Log.Text += "\nImpresión final de ciclo:\n";
-                Log.Text += ObtenerEstadoMemoria() + "\n";
+                    Log.Text += "\nImpresión final de ciclo:\n";
+                    Log.Text += ObtenerEstadoMemoria() + "\n";
+                
             });
         }
+    
+        private void FinalizarProceso(Proceso proceso)
+{
+    asignador.liberarMemoria(proceso.ID); // Liberar memoria
+    memoria += proceso.Memoria;
+    lbMemoria.Text = memoria.ToString();
 
+    if (proceso.TiempoInicio.HasValue)
+    {
+        TimeSpan tiempoDeAtencion = DateTime.Now - proceso.TiempoInicio.Value;
+        totalTimepoEnAtencion += (decimal)tiempoDeAtencion.TotalSeconds;
+        totalDeProcesosAtendidos++;
+    }
 
+    procesos.Remove(proceso); // Eliminar el proceso de la lista
+    ActualizarContador();
+    MostrarEstadistica();
+}
 
 
         private void ActualizarSwap(Proceso proceso)
@@ -196,11 +249,11 @@ namespace SOProyecto
             }
 
             dataGridView1.Rows.Clear();
-            if (procesos.Count == 0)
+           /* if (procesos.Count == 0)
             {
                 MessageBox.Show("No hay procesos para mostrar.");
                 return;
-            }
+            }*/
 
             foreach (var proceso in procesos)
             {
@@ -210,17 +263,17 @@ namespace SOProyecto
                 {
                     dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Yellow;
                 }
-                else if (proceso.Estado == "Ejecutando")
+                else if (proceso.Estado == "Running")
                 {
                     dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
                 }
-                else if (proceso.Estado == "Terminado")
+                else if (proceso.Estado == "Blocked")
                 {
-                    dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Gray;
+                    dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Red;
                 }
                 else
                 {
-                    dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.White;
+                    dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.YellowGreen;
                 }
             }
         }

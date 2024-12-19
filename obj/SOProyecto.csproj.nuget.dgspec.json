@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\azfaj\\OneDrive\\Escritorio\\5\\SOProyecto.csproj": {}
+    "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\SOProyecto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\azfaj\\OneDrive\\Escritorio\\5\\SOProyecto.csproj": {
+    "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\SOProyecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\5\\SOProyecto.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\SOProyecto.csproj",
         "projectName": "SOProyecto",
-        "projectPath": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\5\\SOProyecto.csproj",
-        "packagesPath": "C:\\Users\\azfaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\azfaj\\OneDrive\\Escritorio\\5\\obj\\",
+        "projectPath": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\SOProyecto.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Documents\\sistemas operativos\\Proyecto\\Administrador-de-procesos\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\azfaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,9 +38,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -68,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

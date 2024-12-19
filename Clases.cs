@@ -156,7 +156,7 @@ public class Proceso
         CPU = cpu;
         TiempoEjecucion = tiempoEjecucion;
         TiempoRestante = tiempoEjecucion;
-        Estado = "Inicializando"; // Estado inicial
+        Estado = "Ready"; // Estado inicial
         Swap = "En espera";
         Procesamiento = procesamiento;
         TiempoInicio = null;
